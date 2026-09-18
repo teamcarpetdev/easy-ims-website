@@ -112,10 +112,10 @@ window.EIMS_DB = {
     headline: "Tu negocio, en todos tus dispositivos",
     subheadline: "Escritorio, tablet o móvil — Easy-IMS se adapta perfecto a cualquier pantalla sin instalar nada.",
     stats: [
-      { value: 99.9,   suffix: "%",     label: "Uptime garantizado",    sublabel: "12 meses consecutivos",  color: "#34D399", ring: true  },
-      { value: 18.5,   suffix: "M+",    label: "e-CF procesados",       sublabel: "Acumulados a la fecha",  color: "#4F8EF7", ring: false },
-      { value: 2597,   suffix: "+",     label: "Empresas activas",      sublabel: "En Latinoamérica",       color: "#A78BFA", ring: false },
-      { value: 4,      suffix: " pasos",label: "Para certificarte",      sublabel: "Con CerteCF · DGII",    color: "#FBBF24", ring: false }
+      { value: 99.9,   suffix: "%",     label: "Disponibilidad garantizada", sublabel: "12 meses consecutivos",  color: "#34D399", ring: true  },
+      { value: 18.5,   suffix: "M+",    label: "e-CF procesados",       sublabel: "Acumulados a la fecha",  color: "#4F8EF7", ring: false, visible: false }, // oculto temporalmente -- reactivar cuando el número sea real
+      { value: 2597,   suffix: "+",     label: "Empresas activas",      sublabel: "En Latinoamérica",       color: "#A78BFA", ring: false, visible: false }, // oculto temporalmente -- reactivar cuando el número sea real
+      { value: "",     suffix: "Muy fácil", label: "Para certificarte",  sublabel: "Con CerteCF · DGII",    color: "#FBBF24", ring: false }
     ]
   },
 
@@ -150,7 +150,7 @@ window.EIMS_DB = {
     chips: [
       { value: "↑ 12.4%",   label: "Ventas",    labelEn: "Sales",     color: "green"  },
       { value: "147",        label: "Facturas",  labelEn: "Invoices",  color: "blue"   },
-      { value: "99.9%",      label: "Uptime",    labelEn: "Uptime",    color: "purple" }
+      { value: "99.9%",      label: "Disponibilidad",    labelEn: "Uptime",    color: "purple" }
     ]
   },
 
@@ -158,7 +158,7 @@ window.EIMS_DB = {
   heroFloats: [
     { icon: "trending-up", bg: "rgba(52,211,153,.15)",  value: "+38% ventas",     label: "vs. mes anterior" },
     { icon: "zap",         bg: "rgba(79,142,247,.15)",  value: "Factura en 30s",  label: "CFE automático"   },
-    { icon: "shield",      bg: "rgba(167,139,250,.15)", value: "99.9% Uptime",    label: "Garantizado"      }
+    { icon: "shield",      bg: "rgba(167,139,250,.15)", value: "99.9% Disponibilidad",    label: "Garantizada"      }
   ],
 
   /* ─────────────────────────── HERO MOCKUP (datos demo) ──────────────── */
@@ -210,16 +210,16 @@ window.EIMS_DB = {
   /* ─────────────────────────── HERO ─────────────────────────────────── */
   hero: {
     visible: true,
-    badge:       "🏛️ Proveedor Certificado DGII · Ley 32-23 · +18.5M facturas procesadas",
+    badge:       "🏛️ <span class=\"badge-blink\">En Proceso</span> · Proveedor Certificado DGII · Ley 32-23",
     headline:    "El software empresarial que tu negocio necesita",
     subheadline: "Facturación electrónica, inventario en tiempo real, contabilidad avanzada y CRM integrado — todo en una sola plataforma inteligente.",
     ctaPrimary:  { label: "Comienza Gratis — 15 días", href: "#contacto" },
     ctaSecondary:{ label: "Ver demostración",           href: "#caracteristicas" },
     trustNote:   "Sin tarjeta de crédito · Sin contrato de permanencia",
     stats: [
-      { value: 5000,  suffix: "+",  label: "Empresas activas" },
-      { value: 99.9,  suffix: "%",  label: "Uptime garantizado" },
-      { value: 15,    suffix: "+",  label: "Años en el mercado" },
+      { value: 5000,  suffix: "+",  label: "Empresas activas", visible: false }, // oculto temporalmente -- reactivar cuando el número sea real, solo cambiar a true
+      { value: 99.9,  suffix: "%",  label: "Disponibilidad garantizada" },
+      { value: 15,    suffix: "+",  label: "Años de experiencia" },
       { value: 24,    suffix: "/7", label: "Soporte disponible" }
     ]
   },
@@ -456,7 +456,7 @@ window.EIMS_DB = {
     items: [
       { value: 2597,     suffix: "+",  label: "Empresas activas",              icon: "briefcase" },
       { value: 18500000, suffix: "+",  label: "e-CF procesados",               icon: "receipt"   },
-      { value: 99.9,     suffix: "%",  label: "Uptime garantizado DGII",       icon: "server"    },
+      { value: 99.9,     suffix: "%",  label: "Disponibilidad garantizada DGII",       icon: "server"    },
       { value: 2000,     suffix: "+",  label: "Desarrolladores en comunidad",  icon: "users"     }
     ]
   },
@@ -593,7 +593,7 @@ window.EIMS_DB = {
   cta: {
     visible: true,
     headline: "Comienza hoy. Sin riesgos.",
-    subheadline: "Únete a más de 5,000 empresas que ya gestionan su negocio de forma inteligente con Easy-IMS.",
+    subheadline: "Simplifica la gestión de tu negocio con Easy-IMS.",
     ctaPrimary:   { label: "Prueba gratis 15 días", href: "#contacto" },
     ctaSecondary: { label: "Hablar con un experto",  href: "#contacto" },
     trustItems: [
@@ -728,9 +728,9 @@ window.EIMS_DB = {
         ctaSecondary: { label: "Watch demo",            href: "#caracteristicas" },
         trustNote:   "No credit card · No commitment contract",
         stats: [
-          { value: 5000,    suffix: "+",  label: "Active companies" },
+          { value: 5000,    suffix: "+",  label: "Active companies", visible: false }, // temporarily hidden -- flip to true when the number is real
           { value: 99.9,    suffix: "%",  label: "Guaranteed uptime" },
-          { value: 15,      suffix: "+",  label: "Years in market" },
+          { value: 15,      suffix: "+",  label: "Years of experience" },
           { value: 24,      suffix: "/7", label: "Support available" }
         ]
       },

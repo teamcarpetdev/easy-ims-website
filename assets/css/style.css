@@ -494,6 +494,14 @@ p{line-height:1.7}
   animation:fadeDown .8s var(--ease) both;
   /* margin-bottom handled by .hero-badges-row */
 }
+.badge-blink{
+  color:#F59E0B;font-weight:700;
+  animation:badgeBlink 1.4s ease-in-out infinite;
+}
+@keyframes badgeBlink{
+  0%,100%{opacity:1}
+  50%{opacity:.35}
+}
 .hero-content h1{
   color:var(--c-text-dark);margin-bottom:1.25rem;
   animation:fadeUp .8s .1s var(--ease) both;

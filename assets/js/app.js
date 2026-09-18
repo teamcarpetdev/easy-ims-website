@@ -146,7 +146,7 @@
             </div>
             <p class="hero-trust">${icon('shield-check')} ${h.trustNote}</p>
             <div class="hero-stats">
-              ${h.stats.map(s=>`
+              ${h.stats.filter(s=>s.visible!==false).map(s=>`
                 <div class="hero-stat">
                   <div class="hero-stat-value" data-target="${s.value}" data-suffix="${s.suffix}">${s.value}${s.suffix}</div>
                   <div class="hero-stat-label">${s.label}</div>
@@ -447,7 +447,7 @@
 
         <!-- Stats row with percentage rings -->
         <div class="devices-stats">
-          ${d.stats.map((s,i) => statCard(s, i)).join('')}
+          ${d.stats.filter(s=>s.visible!==false).map((s,i) => statCard(s, i)).join('')}
         </div>
       </div>
     </section>`;
