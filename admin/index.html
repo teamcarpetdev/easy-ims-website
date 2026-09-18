@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Easy-IMS · Panel Administrativo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet"/>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="../assets/css/admin.css"/>
+</head>
+<body>
+
+<!-- ── Sidebar ─────────────────────────────────────────────────── -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <div class="sidebar-logo">
+      <div class="sidebar-logo-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+          <polyline points="2 17 12 22 22 17"></polyline>
+          <polyline points="2 12 12 17 22 12"></polyline>
+        </svg>
+      </div>
+      <div>
+        <div class="sidebar-logo-name">Easy-IMS</div>
+        <div class="sidebar-logo-sub">Admin Panel</div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="sidebar-nav">
+    <div class="nav-group-label">General</div>
+    <a href="#dashboard"     class="sidebar-link active"  data-section="dashboard">
+      <svg data-lucide="layout-dashboard"></svg> Dashboard
+    </a>
+    <a href="#configuracion" class="sidebar-link"         data-section="configuracion">
+      <svg data-lucide="settings-2"></svg> Configuración
+    </a>
+    <a href="#tema"          class="sidebar-link"         data-section="tema">
+      <svg data-lucide="palette"></svg> Tema & Colores
+    </a>
+
+    <div class="nav-group-label">Contenido</div>
+    <a href="#hero"          class="sidebar-link"         data-section="hero">
+      <svg data-lucide="monitor"></svg> Hero / Portada
+    </a>
+    <a href="#clientes"      class="sidebar-link"         data-section="clientes">
+      <svg data-lucide="building-2"></svg> Clientes
+    </a>
+    <a href="#caracteristicas" class="sidebar-link"       data-section="caracteristicas">
+      <svg data-lucide="star"></svg> Características
+    </a>
+    <a href="#beneficios"    class="sidebar-link"         data-section="beneficios">
+      <svg data-lucide="shield-check"></svg> Beneficios
+    </a>
+    <a href="#modulos"       class="sidebar-link"         data-section="modulos">
+      <svg data-lucide="grid-3x3"></svg> Módulos
+    </a>
+    <a href="#estadisticas"  class="sidebar-link"         data-section="estadisticas">
+      <svg data-lucide="bar-chart-2"></svg> Estadísticas
+    </a>
+    <a href="#testimonios"   class="sidebar-link"         data-section="testimonios">
+      <svg data-lucide="message-square"></svg> Testimonios
+    </a>
+    <a href="#precios"       class="sidebar-link"         data-section="precios">
+      <svg data-lucide="tag"></svg> Precios
+    </a>
+    <a href="#faq"           class="sidebar-link"         data-section="faq">
+      <svg data-lucide="help-circle"></svg> FAQ
+    </a>
+    <a href="#secciones"     class="sidebar-link"         data-section="secciones">
+      <svg data-lucide="layers"></svg> Secciones
+    </a>
+
+    <div class="nav-group-label">Sistema</div>
+    <a href="../index.html"  class="sidebar-link sidebar-link-external" target="_blank">
+      <svg data-lucide="external-link"></svg> Ver sitio web
+    </a>
+    <a href="#exportar"      class="sidebar-link"         data-section="exportar">
+      <svg data-lucide="download-cloud"></svg> Exportar datos
+    </a>
+  </nav>
+</aside>
+
+<!-- ── Main ───────────────────────────────────────────────────────── -->
+<div class="admin-main">
+
+  <!-- Top bar -->
+  <header class="topbar">
+    <button class="topbar-menu-btn" id="sidebar-toggle">
+      <svg data-lucide="menu"></svg>
+    </button>
+    <div class="topbar-breadcrumb">
+      <span id="topbar-section-name">Dashboard</span>
+    </div>
+    <div class="topbar-actions">
+      <button class="topbar-btn" id="btn-save-all" title="Guardar todos los cambios">
+        <svg data-lucide="save"></svg> Guardar cambios
+      </button>
+      <button class="topbar-btn topbar-btn-danger" id="btn-reset" title="Restaurar valores originales">
+        <svg data-lucide="rotate-ccw"></svg> Restaurar
+      </button>
+    </div>
+  </header>
+
+  <!-- Content -->
+  <main class="admin-content" id="admin-content">
+
+    <!-- ═══ DASHBOARD ══════════════════════════════════════════ -->
+    <section id="section-dashboard" class="admin-section active">
+      <div class="page-header">
+        <h1>Dashboard</h1>
+        <p>Resumen del estado del sitio web Easy-IMS</p>
+      </div>
+      <div class="kpi-grid" id="kpi-grid">
+        <!-- Rendered by JS -->
+      </div>
+      <div class="dash-grid">
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <h3>Secciones del sitio</h3>
+            <a href="#secciones" class="link-sm" data-section="secciones">Gestionar</a>
+          </div>
+          <div id="dash-sections-list"></div>
+        </div>
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <h3>Acciones rápidas</h3>
+          </div>
+          <div class="quick-actions" id="quick-actions">
+            <button class="quick-action" data-goto="hero">
+              <svg data-lucide="monitor"></svg>
+              <span>Editar Hero</span>
+            </button>
+            <button class="quick-action" data-goto="precios">
+              <svg data-lucide="tag"></svg>
+              <span>Editar Precios</span>
+            </button>
+            <button class="quick-action" data-goto="testimonios">
+              <svg data-lucide="message-square"></svg>
+              <span>Testimonios</span>
+            </button>
+            <button class="quick-action" data-goto="configuracion">
+              <svg data-lucide="settings-2"></svg>
+              <span>Configuración</span>
+            </button>
+            <a href="../index.html" target="_blank" class="quick-action" style="text-decoration:none">
+              <svg data-lucide="external-link"></svg>
+              <span>Ver sitio</span>
+            </a>
+            <button class="quick-action" data-goto="exportar">
+              <svg data-lucide="download-cloud"></svg>
+              <span>Exportar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CONFIGURACIÓN ══════════════════════════════════════ -->
+    <section id="section-configuracion" class="admin-section">
+      <div class="page-header">
+        <h1>Configuración general</h1>
+        <p>Datos de la empresa y configuración global del sitio</p>
+      </div>
+      <div class="admin-card">
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label">Nombre del sitio</label>
+            <input type="text" class="admin-input" data-path="config.siteName"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Dominio</label>
+            <input type="text" class="admin-input" data-path="config.domain"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Tagline</label>
+            <input type="text" class="admin-input" data-path="config.tagline"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Días de prueba gratuita</label>
+            <input type="number" class="admin-input" data-path="config.trialDays"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Teléfono</label>
+            <input type="tel" class="admin-input" data-path="config.phone"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">WhatsApp (solo números)</label>
+            <input type="text" class="admin-input" data-path="config.whatsapp"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Correo electrónico</label>
+            <input type="email" class="admin-input" data-path="config.email"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Año en el footer</label>
+            <input type="number" class="admin-input" data-path="config.year"/>
+          </div>
+          <div class="form-group form-group-full">
+            <label class="form-label">Dirección</label>
+            <input type="text" class="admin-input" data-path="config.address"/>
+          </div>
+          <div class="form-group form-group-full">
+            <label class="form-label">Descripción (SEO)</label>
+            <textarea class="admin-input admin-textarea" data-path="config.description"></textarea>
+          </div>
+        </div>
+
+        <hr class="admin-divider"/>
+
+        <!-- Badge "Mercado Dominicano" -->
+        <h4 style="margin-bottom:1rem;font-size:.9rem">Badge Hero — "Mercado Dominicano"</h4>
+        <div class="toggle-row" style="margin-bottom:1.25rem">
+          <div>
+            <span class="toggle-row-label">Mostrar badge en el hero</span>
+            <p style="font-size:.75rem;color:var(--adm-text3);margin-top:.2rem">
+              Controla si aparece el badge con la bandera dominicana junto al badge de DGII.
+            </p>
+          </div>
+          <div class="toggle-switch-sm" data-toggle-path="config.marketBadge.visible">
+            <div class="toggle-knob-sm"></div>
+          </div>
+        </div>
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label">País (selecciona de la tabla de países)</label>
+            <select class="admin-input" id="mb-country-select" data-path="config.marketBadge.countryCode">
+              <!-- populated by admin.js from DB.countries -->
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Subtexto (ej: Est. 2010 — vacío para ocultar)</label>
+            <input type="text" class="admin-input" data-path="config.marketBadge.since"
+                   placeholder="Est. 2010"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Texto en español</label>
+            <input type="text" class="admin-input" data-path="config.marketBadge.text"
+                   placeholder="Desarrollado para el Mercado Dominicano"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Texto en inglés</label>
+            <input type="text" class="admin-input" data-path="config.marketBadge.textEn"
+                   placeholder="Built for the Dominican Market"/>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ TEMA ════════════════════════════════════════════════ -->
+    <section id="section-tema" class="admin-section">
+      <div class="page-header">
+        <h1>Tema & Colores</h1>
+        <p>Personaliza la paleta de colores y apariencia visual del sitio</p>
+      </div>
+      <div class="admin-card">
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label">Color primario</label>
+            <div class="color-input-wrap">
+              <input type="color" class="color-picker" data-path="theme.primaryColor"/>
+              <input type="text" class="admin-input" data-path="theme.primaryColor" style="font-family:monospace"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Color acento</label>
+            <div class="color-input-wrap">
+              <input type="color" class="color-picker" data-path="theme.accentColor"/>
+              <input type="text" class="admin-input" data-path="theme.accentColor" style="font-family:monospace"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Color acento 2 (púrpura)</label>
+            <div class="color-input-wrap">
+              <input type="color" class="color-picker" data-path="theme.accentColor2"/>
+              <input type="text" class="admin-input" data-path="theme.accentColor2" style="font-family:monospace"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Color éxito</label>
+            <div class="color-input-wrap">
+              <input type="color" class="color-picker" data-path="theme.successColor"/>
+              <input type="text" class="admin-input" data-path="theme.successColor" style="font-family:monospace"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Fondo oscuro (hero)</label>
+            <div class="color-input-wrap">
+              <input type="color" class="color-picker" data-path="theme.darkBg"/>
+              <input type="text" class="admin-input" data-path="theme.darkBg" style="font-family:monospace"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Superficie oscura</label>
+            <div class="color-input-wrap">
+              <input type="color" class="color-picker" data-path="theme.darkSurface"/>
+              <input type="text" class="admin-input" data-path="theme.darkSurface" style="font-family:monospace"/>
+            </div>
+          </div>
+        </div>
+        <div class="form-hint">Los cambios de color se aplican al guardar y recargar el sitio.</div>
+      </div>
+    </section>
+
+    <!-- ═══ HERO ════════════════════════════════════════════════ -->
+    <section id="section-hero" class="admin-section">
+      <div class="page-header">
+        <h1>Hero / Portada</h1>
+        <p>Configura el banner principal del sitio</p>
+      </div>
+      <div class="admin-card">
+        <div class="form-grid-2">
+          <div class="form-group form-group-full">
+            <label class="form-label">Badge (etiqueta superior)</label>
+            <input type="text" class="admin-input" data-path="hero.badge"/>
+          </div>
+          <div class="form-group form-group-full">
+            <label class="form-label">Titular principal (H1)</label>
+            <input type="text" class="admin-input" data-path="hero.headline"/>
+          </div>
+          <div class="form-group form-group-full">
+            <label class="form-label">Subtítulo</label>
+            <textarea class="admin-input admin-textarea" data-path="hero.subheadline"></textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label">CTA Principal — Texto</label>
+            <input type="text" class="admin-input" data-path="hero.ctaPrimary.label"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">CTA Principal — URL</label>
+            <input type="text" class="admin-input" data-path="hero.ctaPrimary.href"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">CTA Secundario — Texto</label>
+            <input type="text" class="admin-input" data-path="hero.ctaSecondary.label"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">CTA Secundario — URL</label>
+            <input type="text" class="admin-input" data-path="hero.ctaSecondary.href"/>
+          </div>
+          <div class="form-group form-group-full">
+            <label class="form-label">Nota de confianza (bajo los CTAs)</label>
+            <input type="text" class="admin-input" data-path="hero.trustNote"/>
+          </div>
+        </div>
+        <hr class="admin-divider"/>
+        <h4 style="margin-bottom:1rem">Estadísticas del hero</h4>
+        <div id="hero-stats-editor"></div>
+      </div>
+    </section>
+
+    <!-- ═══ CLIENTES ═══════════════════════════════════════════ -->
+    <section id="section-clientes" class="admin-section">
+      <div class="page-header">
+        <h1>Clientes</h1>
+        <p>Logos de clientes en el carrusel de confianza</p>
+      </div>
+      <div class="admin-card">
+        <div class="form-group" style="margin-bottom:1.5rem">
+          <label class="form-label">Texto del carrusel</label>
+          <input type="text" class="admin-input" data-path="clients.sectionLabel"/>
+        </div>
+        <div class="table-wrap">
+          <table class="admin-table" id="clients-table">
+            <thead><tr><th>#</th><th>Nombre</th><th>Inicial</th><th>Acciones</th></tr></thead>
+            <tbody id="clients-tbody"></tbody>
+          </table>
+        </div>
+        <button class="btn-add-row" id="clients-add">
+          <svg data-lucide="plus-circle"></svg> Agregar cliente
+        </button>
+      </div>
+    </section>
+
+    <!-- ═══ CARACTERÍSTICAS ════════════════════════════════════ -->
+    <section id="section-caracteristicas" class="admin-section">
+      <div class="page-header">
+        <h1>Características</h1>
+        <p>Pestañas de funcionalidades del producto</p>
+      </div>
+      <div class="admin-card">
+        <div class="form-grid-2" style="margin-bottom:1.5rem">
+          <div class="form-group">
+            <label class="form-label">Titular</label>
+            <input type="text" class="admin-input" data-path="features.headline"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Subtítulo</label>
+            <input type="text" class="admin-input" data-path="features.subheadline"/>
+          </div>
+        </div>
+        <hr class="admin-divider"/>
+        <div id="features-tabs-editor"></div>
+      </div>
+    </section>
+
+    <!-- ═══ BENEFICIOS ═════════════════════════════════════════ -->
+    <section id="section-beneficios" class="admin-section">
+      <div class="page-header">
+        <h1>Beneficios</h1>
+        <p>Sección "¿Por qué Easy-IMS?"</p>
+      </div>
+      <div class="admin-card">
+        <div class="form-grid-2" style="margin-bottom:1.5rem">
+          <div class="form-group">
+            <label class="form-label">Titular</label>
+            <input type="text" class="admin-input" data-path="benefits.headline"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Subtítulo</label>
+            <textarea class="admin-input admin-textarea" data-path="benefits.subheadline"></textarea>
+          </div>
+        </div>
+        <hr class="admin-divider"/>
+        <div class="table-wrap">
+          <table class="admin-table" id="benefits-table">
+            <thead><tr><th>#</th><th>Icono</th><th>Título</th><th>Descripción</th><th>Color</th><th>Acc.</th></tr></thead>
+            <tbody id="benefits-tbody"></tbody>
+          </table>
+        </div>
+        <button class="btn-add-row" id="benefits-add">
+          <svg data-lucide="plus-circle"></svg> Agregar beneficio
+        </button>
+      </div>
+    </section>
+
+    <!-- ═══ MÓDULOS ════════════════════════════════════════════ -->
+    <section id="section-modulos" class="admin-section">
+      <div class="page-header">
+        <h1>Módulos / Servicios</h1>
+        <p>Tarjetas de productos en la sección de módulos</p>
+      </div>
+      <div class="admin-card">
+        <div class="form-grid-2" style="margin-bottom:1.5rem">
+          <div class="form-group">
+            <label class="form-label">Titular</label>
+            <input type="text" class="admin-input" data-path="modules.headline"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Subtítulo</label>
+            <textarea class="admin-input admin-textarea" data-path="modules.subheadline"></textarea>
+          </div>
+        </div>
+        <hr class="admin-divider"/>
+        <div class="table-wrap">
+          <table class="admin-table" id="modules-table">
+            <thead><tr><th>#</th><th>Icono</th><th>Título</th><th>Descripción</th><th>Tag</th><th>Color</th><th>Acc.</th></tr></thead>
+            <tbody id="modules-tbody"></tbody>
+          </table>
+        </div>
+        <button class="btn-add-row" id="modules-add">
+          <svg data-lucide="plus-circle"></svg> Agregar módulo
+        </button>
+      </div>
+    </section>
+
+    <!-- ═══ ESTADÍSTICAS ═══════════════════════════════════════ -->
+    <section id="section-estadisticas" class="admin-section">
+      <div class="page-header">
+        <h1>Estadísticas</h1>
+        <p>Contadores animados de la sección de métricas</p>
+      </div>
+      <div class="admin-card">
+        <div class="form-group" style="margin-bottom:1.5rem">
+          <label class="form-label">Titular de sección</label>
+          <input type="text" class="admin-input" data-path="stats.headline"/>
+        </div>
+        <hr class="admin-divider"/>
+        <div class="table-wrap">
+          <table class="admin-table" id="stats-table">
+            <thead><tr><th>#</th><th>Icono</th><th>Valor</th><th>Sufijo</th><th>Etiqueta</th><th>Acc.</th></tr></thead>
+            <tbody id="stats-tbody"></tbody>
+          </table>
+        </div>
+        <button class="btn-add-row" id="stats-add">
+          <svg data-lucide="plus-circle"></svg> Agregar estadística
+        </button>
+      </div>
+    </section>
+
+    <!-- ═══ TESTIMONIOS ════════════════════════════════════════ -->
+    <section id="section-testimonios" class="admin-section">
+      <div class="page-header">
+        <h1>Testimonios</h1>
+        <p>Opiniones de clientes</p>
+      </div>
+      <div class="admin-card">
+        <div class="form-grid-2" style="margin-bottom:1.5rem">
+          <div class="form-group">
+            <label class="form-label">Titular</label>
+            <input type="text" class="admin-input" data-path="testimonials.headline"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Subtítulo</label>
+            <input type="text" class="admin-input" data-path="testimonials.subheadline"/>
+          </div>
+        </div>
+        <hr class="admin-divider"/>
+        <div class="table-wrap">
+          <table class="admin-table" id="testimonials-table">
+            <thead><tr><th>#</th><th>Nombre</th><th>Cargo</th><th>Empresa</th><th>Estrellas</th><th>Testimonio</th><th>Acc.</th></tr></thead>
+            <tbody id="testimonials-tbody"></tbody>
+          </table>
+        </div>
+        <button class="btn-add-row" id="testimonials-add">
+          <svg data-lucide="plus-circle"></svg> Agregar testimonio
+        </button>
+      </div>
+    </section>
+
+    <!-- ═══ PRECIOS ════════════════════════════════════════════ -->
+    <section id="section-precios" class="admin-section">
+      <div class="page-header">
+        <h1>Precios</h1>
+        <p>Planes y precios de suscripción</p>
+      </div>
+      <div class="admin-card">
+        <div class="form-grid-2" style="margin-bottom:1.5rem">
+          <div class="form-group">
+            <label class="form-label">Titular</label>
+            <input type="text" class="admin-input" data-path="pricing.headline"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Subtítulo</label>
+            <input type="text" class="admin-input" data-path="pricing.subheadline"/>
+          </div>
+        </div>
+        <hr class="admin-divider"/>
+        <div id="pricing-plans-editor"></div>
+      </div>
+    </section>
+
+    <!-- ═══ FAQ ═══════════════════════════════════════════════ -->
+    <section id="section-faq" class="admin-section">
+      <div class="page-header">
+        <h1>Preguntas frecuentes</h1>
+        <p>Gestiona las preguntas y respuestas del FAQ</p>
+      </div>
+      <div class="admin-card">
+        <div class="form-grid-2" style="margin-bottom:1.5rem">
+          <div class="form-group">
+            <label class="form-label">Titular</label>
+            <input type="text" class="admin-input" data-path="faq.headline"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Subtítulo</label>
+            <input type="text" class="admin-input" data-path="faq.subheadline"/>
+          </div>
+        </div>
+        <hr class="admin-divider"/>
+        <div class="table-wrap">
+          <table class="admin-table" id="faq-table">
+            <thead><tr><th>#</th><th>Pregunta</th><th>Respuesta</th><th>Acc.</th></tr></thead>
+            <tbody id="faq-tbody"></tbody>
+          </table>
+        </div>
+        <button class="btn-add-row" id="faq-add">
+          <svg data-lucide="plus-circle"></svg> Agregar pregunta
+        </button>
+      </div>
+    </section>
+
+    <!-- ═══ SECCIONES ══════════════════════════════════════════ -->
+    <section id="section-secciones" class="admin-section">
+      <div class="page-header">
+        <h1>Secciones del sitio</h1>
+        <p>Controla la visibilidad y el orden de cada sección</p>
+      </div>
+      <div class="admin-card">
+        <p class="form-hint" style="margin-bottom:1.25rem">
+          Activa o desactiva secciones y arrastra para reordenarlas.
+          El cambio se aplica al guardar.
+        </p>
+        <div id="sections-list"></div>
+      </div>
+    </section>
+
+    <!-- ═══ EXPORTAR ═══════════════════════════════════════════ -->
+    <section id="section-exportar" class="admin-section">
+      <div class="page-header">
+        <h1>Exportar / Importar datos</h1>
+        <p>Descarga o carga la configuración completa del sitio en formato JSON</p>
+      </div>
+      <div class="dash-grid">
+        <div class="admin-card">
+          <h3 style="margin-bottom:.75rem">Exportar</h3>
+          <p style="font-size:.875rem;color:var(--adm-text2);margin-bottom:1.25rem">
+            Descarga toda la configuración actual como archivo JSON. Úsalo como respaldo o para migrar a otro entorno.
+          </p>
+          <button class="topbar-btn" id="btn-export">
+            <svg data-lucide="download-cloud"></svg> Descargar JSON
+          </button>
+        </div>
+        <div class="admin-card">
+          <h3 style="margin-bottom:.75rem">Importar</h3>
+          <p style="font-size:.875rem;color:var(--adm-text2);margin-bottom:1.25rem">
+            Carga una configuración previamente exportada. <strong>Esto sobreescribirá todos los datos actuales.</strong>
+          </p>
+          <input type="file" id="import-file" accept=".json" style="display:none"/>
+          <button class="topbar-btn" id="btn-import">
+            <svg data-lucide="upload-cloud"></svg> Cargar JSON
+          </button>
+        </div>
+      </div>
+      <div class="admin-card" style="margin-top:1.5rem">
+        <h3 style="margin-bottom:.75rem">Configuración actual (JSON)</h3>
+        <pre id="json-preview" style="background:var(--adm-bg);padding:1.25rem;border-radius:var(--adm-r);font-size:.8rem;overflow:auto;max-height:500px;color:var(--adm-text2);border:1px solid var(--adm-border)"></pre>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- Toast -->
+<div id="toast" class="toast"></div>
+
+<!-- Scripts -->
+<script src="../backend/db.js"></script>
+<script src="../assets/js/admin.js"></script>
+</body>
+</html>
