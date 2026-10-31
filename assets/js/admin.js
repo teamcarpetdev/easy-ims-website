@@ -255,7 +255,7 @@
       ['Nombre', 'Inicial'],
       () => renderClientsTable()
     );
-    document.getElementById('clients-add')?.onclick = () => {
+    (document.getElementById('clients-add') || {}).onclick = () => {
       DB.clients.items.push({ name: 'Nuevo cliente', initial: 'NC' });
       renderClientsTable();
     };
@@ -268,7 +268,7 @@
       ['Icono', 'Título', 'Descripción', 'Color'],
       () => renderBenefitsTable()
     );
-    document.getElementById('benefits-add')?.onclick = () => {
+    (document.getElementById('benefits-add') || {}).onclick = () => {
       DB.benefits.items.push({ icon:'star', title:'Nuevo beneficio', description:'Descripción', color:'#4F8EF7' });
       renderBenefitsTable();
     };
@@ -281,7 +281,7 @@
       ['Icono', 'Título', 'Descripción', 'Tag', 'Color'],
       () => renderModulesTable()
     );
-    document.getElementById('modules-add')?.onclick = () => {
+    (document.getElementById('modules-add') || {}).onclick = () => {
       DB.modules.items.push({ icon:'box', title:'Nuevo módulo', description:'Descripción', tag: null, color:'#4F8EF7', bg:'#EFF6FF' });
       renderModulesTable();
     };
@@ -294,7 +294,7 @@
       ['Icono', 'Valor', 'Sufijo', 'Etiqueta'],
       () => renderStatsTable()
     );
-    document.getElementById('stats-add')?.onclick = () => {
+    (document.getElementById('stats-add') || {}).onclick = () => {
       DB.stats.items.push({ icon:'bar-chart', value:0, suffix:'+', label:'Nueva métrica' });
       renderStatsTable();
     };
@@ -307,7 +307,7 @@
       ['Nombre', 'Cargo', 'Empresa', 'Estrellas', 'Testimonio'],
       () => renderTestimonialsTable()
     );
-    document.getElementById('testimonials-add')?.onclick = () => {
+    (document.getElementById('testimonials-add') || {}).onclick = () => {
       DB.testimonials.items.push({ name:'Nombre', role:'Cargo', company:'Empresa', rating:5, quote:'Testimonio aquí...' });
       renderTestimonialsTable();
     };
@@ -320,7 +320,7 @@
       ['Pregunta', 'Respuesta'],
       () => renderFAQTable()
     );
-    document.getElementById('faq-add')?.onclick = () => {
+    (document.getElementById('faq-add') || {}).onclick = () => {
       DB.faq.items.push({ question:'Nueva pregunta', answer:'Respuesta...' });
       renderFAQTable();
     };

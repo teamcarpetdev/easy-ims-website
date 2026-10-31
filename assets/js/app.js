@@ -32,6 +32,12 @@
     }
   } catch(e){}
 
+  // A saved admin snapshot replaces whole arrays: keep sections added to db.js later
+  // (e.g. gateway, security) so they still render for browsers with an older snapshot.
+  (ORIG_DB.sections || []).forEach(sec => {
+    if (Array.isArray(DB.sections) && !DB.sections.some(x => x.id === sec.id)) DB.sections.push({ ...sec });
+  });
+
   let currentLang = localStorage.getItem('eims_lang') || 'es';
   let renderDB    = DB; // all render fns read this
 
@@ -563,9 +569,9 @@
           <h2>${m.headline}</h2>
           <p>${m.subheadline}</p>
         </div>
-        <div class="modules-grid">
+        <div class="modules-grid${m.items.some(x=>Array.isArray(x.features)&&x.features.length)?' modules-areas':''}">
           ${m.items.map((mod,i)=>`
-            <div class="module-card reveal reveal-delay-${(i%4)+1}" style="--card-color:${mod.color}">
+            <div class="module-card reveal reveal-delay-${(i%3)+1}" style="--card-color:${mod.color}">
               ${mod.tag?`<span class="module-badge" style="background:${mod.color}18;color:${mod.color}">${mod.tag}</span>`:''}
               <div class="module-icon" style="background:${mod.bg}">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
@@ -574,6 +580,10 @@
               </div>
               <h4>${mod.title}</h4>
               <p>${mod.description}</p>
+              ${Array.isArray(mod.features)&&mod.features.length?`
+              <ul class="module-features">
+                ${mod.features.map(f=>`<li>${icon('check',`color:${mod.color}`)}<span>${f}</span></li>`).join('')}
+              </ul>`:''}
             </div>`).join('')}
         </div>
       </div>
@@ -605,6 +615,201 @@
               <div class="power-bullets">
                 ${item.bullets.map(b => `<div class="power-bullet">${b}</div>`).join('')}
               </div>
+            </div>`).join('')}
+        </div>
+      </div>
+    </section>`;
+  }
+
+  /* ─── Easy-IMS Gateway ───────────────────────────────────────── */
+  function escHtml(v) {
+    return String(v == null ? '' : v).replace(/[&<>"']/g,
+      c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+
+  /* JSON mapping diagram: their JSON -> canonical e-CF -> signed DGII XML (values flow left to right) */
+  function renderGatewayMapping(mp) {
+    if (!mp || !Array.isArray(mp.rows) || !mp.rows.length) return '';
+    const plain = v => String(v).replace(/^"|"$/g, '');
+    const links = `
+      <div class="gw-map-links" aria-hidden="true">
+        <div class="gw-map-head"></div>
+        ${mp.rows.map((_, i) => `<div class="gw-map-link" style="--d:${(i * 0.35).toFixed(2)}s"><i></i></div>`).join('')}
+        <div class="gw-map-down">${icon('arrow-down')}</div>
+      </div>`;
+    return `
+    <div class="gw-mapping reveal">
+      <h3>${mp.title}</h3>
+      <p class="gw-api-sub">${mp.subtitle}</p>
+      <div class="gw-map">
+        <div class="gw-map-col gw-map-in">
+          <div class="gw-map-head">${icon('braces')} <span>${mp.colIn}</span></div>
+          ${mp.rows.map(r => `<div class="gw-map-item"><code><b>${escHtml(r.src)}</b>: ${escHtml(r.val)}</code></div>`).join('')}
+        </div>
+        ${links}
+        <div class="gw-map-col gw-map-mid">
+          <div class="gw-map-head">${icon('shuffle')} <span>${mp.colMap}</span></div>
+          ${mp.rows.map(r => `<div class="gw-map-item"><code>${escHtml(r.canon)}</code></div>`).join('')}
+        </div>
+        ${links}
+        <div class="gw-map-col gw-map-out">
+          <div class="gw-map-head">${icon('file-code-2')} <span>${mp.colOut}</span></div>
+          ${mp.rows.map(r => {
+            const v = plain(r.val).replace(/\//g, '-');
+            return `<div class="gw-map-item"><code>&lt;${escHtml(r.xml)}&gt;<b>${escHtml(v)}</b>&lt;/${escHtml(r.xml)}&gt;</code></div>`;
+          }).join('')}
+          <div class="gw-map-badges">
+            ${(mp.badges || []).map((b, i) => `<span class="gw-map-badge">${icon(i ? 'check-circle-2' : 'pen-tool')} ${b}</span>`).join('')}
+          </div>
+        </div>
+      </div>
+      ${mp.note ? `<p class="gw-api-note gw-map-note">${mp.note}</p>` : ''}
+    </div>`;
+  }
+
+  function renderGatewayCert(c) {
+    if (!c || !c.title) return '';
+    return `
+    <div class="gw-cert reveal">
+      <div class="gw-cert-icon">${icon(c.icon || 'badge-alert')}</div>
+      <div class="gw-cert-body">
+        <h3>${c.title}</h3>
+        <p>${c.description}</p>
+        <div class="gw-cert-levels">
+          ${(c.levels || []).map(l => `<span class="gw-cert-level"><i style="background:${l.color}"></i>${l.label}</span>`).join('')}
+        </div>
+      </div>
+    </div>`;
+  }
+
+  function renderGateway() {
+    const g = renderDB.gateway;
+    if (!g?.visible) return '';
+    const api = g.api || {};
+    const samples = Array.isArray(api.samples) ? api.samples : [];
+    const flow = f => `
+      <div class="gw-flow">
+        <span class="gw-flow-title">${f.title}</span>
+        <div class="gw-flow-steps">
+          ${f.steps.map((st, i) => `
+            ${i ? `<span class="gw-flow-arrow" aria-hidden="true">${icon('arrow-right')}</span>` : ''}
+            <div class="gw-flow-step ${st.label && /gateway/i.test(st.label) ? 'is-gw' : ''}">
+              <div class="gw-flow-icon">${icon(st.icon)}</div>
+              <strong>${st.label}</strong>
+              <span>${st.sub}</span>
+            </div>`).join('')}
+        </div>
+      </div>`;
+    return `
+    <section id="gateway" class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label light">${g.sectionLabel}</span>
+          <h2>${g.headline}</h2>
+          <p>${g.subheadline}</p>
+        </div>
+
+        <div class="gw-flows reveal">
+          ${(g.flows || []).map(flow).join('')}
+        </div>
+
+        <div class="gw-grid">
+          ${(g.items || []).map((item, i) => `
+            <div class="gw-card reveal reveal-delay-${(i % 4) + 1}">
+              <div class="gw-card-icon" style="background:${item.color}22">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                     stroke="${item.color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                     style="width:22px;height:22px" data-lucide="${item.icon}"></svg>
+              </div>
+              <h4>${item.title}</h4>
+              <p>${item.description}</p>
+            </div>`).join('')}
+        </div>
+
+        ${renderGatewayMapping(g.mapping)}
+        ${renderGatewayCert(g.cert)}
+
+        ${api.title ? `
+        <div class="gw-api reveal">
+          <h3>${api.title}</h3>
+          <p class="gw-api-sub">${api.subtitle}</p>
+          <p class="gw-api-auth">${icon('key-round')} <span>${escHtml(api.authNote)}</span></p>
+
+          <h4 class="gw-api-h">${api.endpointsTitle || ''} <code class="gw-base">${escHtml(api.baseUrl)}</code></h4>
+          <div class="gw-endpoints" role="table">
+            <div class="gw-ep gw-ep-head" role="row">
+              <span role="columnheader">${api.colMethod}</span>
+              <span role="columnheader">${api.colPath}</span>
+              <span role="columnheader">${api.colPurpose}</span>
+            </div>
+            ${(api.endpoints || []).map(ep => `
+            <div class="gw-ep" role="row">
+              <span role="cell"><span class="gw-method gw-${String(ep.method).toLowerCase()}">${ep.method}</span></span>
+              <span role="cell"><code>${escHtml(ep.path)}</code></span>
+              <span role="cell">${ep.purpose}</span>
+            </div>`).join('')}
+          </div>
+
+          ${samples.length ? `
+          <h4 class="gw-api-h">${api.samplesTitle}</h4>
+          <p class="gw-api-note">${api.samplesNote}</p>
+          <div class="gw-code">
+            <div class="gw-code-tabs" role="tablist">
+              ${samples.map((sm, i) => `
+                <button type="button" role="tab" class="gw-code-tab ${i === 0 ? 'active' : ''}"
+                        data-gw-sample="${sm.id}" aria-selected="${i === 0}">${escHtml(sm.label)}</button>`).join('')}
+            </div>
+            ${samples.map((sm, i) => `
+              <div class="gw-code-panel ${i === 0 ? 'active' : ''}" data-gw-panel="${sm.id}" role="tabpanel">
+                <button type="button" class="gw-copy" data-gw-copy="${sm.id}" aria-label="Copy">${icon('copy')}</button>
+                <pre><code>${escHtml(sm.code)}</code></pre>
+              </div>`).join('')}
+          </div>
+          <h4 class="gw-api-h">${api.responseTitle}</h4>
+          <div class="gw-code"><div class="gw-code-panel active"><pre><code>${escHtml(api.response)}</code></pre></div></div>
+          ` : ''}
+        </div>` : ''}
+      </div>
+    </section>`;
+  }
+
+  /* ─── Security ───────────────────────────────────────────────── */
+  function renderSecurity() {
+    const s = renderDB.security;
+    if (!s?.visible) return '';
+    return `
+    <section id="seguridad" class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label light">${s.sectionLabel}</span>
+          <h2>${s.headline}</h2>
+          <p>${s.subheadline}</p>
+        </div>
+
+        ${Array.isArray(s.flow) && s.flow.length ? `
+        <div class="sec-flow reveal">
+          ${s.flowTitle ? `<p class="sec-flow-title">${s.flowTitle}</p>` : ''}
+          <div class="sec-flow-steps">
+            ${s.flow.map((st, i) => `
+              ${i ? `<span class="sec-flow-arrow" aria-hidden="true">${icon('arrow-right')}</span>` : ''}
+              <div class="sec-flow-step">
+                <div class="sec-flow-icon">${icon(st.icon)}</div>
+                <strong>${st.title}</strong>
+                <span>${st.text}</span>
+              </div>`).join('')}
+          </div>
+        </div>` : ''}
+
+        <div class="sec-grid">
+          ${(s.items || []).map((item, i) => `
+            <div class="sec-card reveal reveal-delay-${(i % 4) + 1}">
+              <div class="sec-card-icon" style="background:${item.color}22">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                     stroke="${item.color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                     style="width:22px;height:22px" data-lucide="${item.icon}"></svg>
+              </div>
+              <h4>${item.title}</h4>
+              <p>${item.description}</p>
             </div>`).join('')}
         </div>
       </div>
@@ -938,6 +1143,8 @@
       benefits:     renderBenefits,
       modules:      renderModules,
       platform:     renderPlatform,
+      gateway:      renderGateway,
+      security:     renderSecurity,
       stats:        renderStats,
       howItWorks:   renderHowItWorks,
       testimonials: renderTestimonials,
@@ -1145,7 +1352,33 @@
   }
 
   /* ─── Re-init only the dynamic DOM (safe to call on every render) ── */
+  /* ─── Gateway code samples: tabs + copy ─────────────────────── */
+  function initCodeTabs() {
+    document.querySelectorAll('.gw-code-tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.dataset.gwSample;
+        const box = btn.closest('.gw-code');
+        box.querySelectorAll('.gw-code-tab').forEach(b => {
+          const on = b === btn; b.classList.toggle('active', on); b.setAttribute('aria-selected', on);
+        });
+        box.querySelectorAll('.gw-code-panel').forEach(p => p.classList.toggle('active', p.dataset.gwPanel === id));
+      });
+    });
+    document.querySelectorAll('.gw-copy').forEach(btn => {
+      btn.setAttribute('aria-label', currentLang === 'en' ? 'Copy code' : 'Copiar código');
+      btn.title = btn.getAttribute('aria-label');
+      btn.addEventListener('click', () => {
+        const code = btn.parentElement.querySelector('code');
+        if (!code || !navigator.clipboard) return;
+        navigator.clipboard.writeText(code.textContent).then(() => {
+          btn.classList.add('copied'); setTimeout(() => btn.classList.remove('copied'), 1200);
+        }).catch(() => {});
+      });
+    });
+  }
+
   function reinitAfterRender() {
+    initCodeTabs();
     initTabs();
     initFAQ();
     initPricing();
