@@ -357,7 +357,7 @@ window.EIMS_DB = {
     subheadline: "Más de 15 años perfeccionando el software de gestión empresarial para el mercado latinoamericano.",
     items: [
       { icon: "cloud",       color: "#4F8EF7", title: "100% en la nube",           description: "Accede desde cualquier dispositivo, en cualquier lugar, sin instalaciones ni mantenimiento de servidores." },
-      { icon: "shield",      color: "#34D399", title: "Seguridad bancaria",         description: "Cifrado AES-256, backups automáticos diarios y certificación ISO 27001 para proteger tus datos." },
+      { icon: "shield",      color: "#34D399", title: "Seguridad bancaria",         description: "Cifrado AES-256, backups automáticos diarios para proteger tus datos." },
       { icon: "zap",         color: "#0DCFDA", title: "Velocidad extrema",          description: "Infraestructura de clase mundial con tiempo de respuesta menor a 200ms y 99.9% de uptime garantizado." },
       { icon: "life-buoy",   color: "#A78BFA", title: "Soporte 24/7",               description: "Equipo de expertos disponible por chat, teléfono y video. Respuesta garantizada en menos de 2 horas." },
       { icon: "trending-up", color: "#FBBF24", title: "Escalable sin límites",      description: "Crece desde 1 usuario hasta miles. Agrega módulos, sucursales y usuarios cuando los necesites." },
@@ -676,9 +676,7 @@ window.EIMS_DB = {
     badges: [
       "Proveedor Certificado DGII",
       "Ley 32-23 · Decreto 587-24",
-      "e-CF: E31–E47",
-      "ISO 27001",
-      "SOC 2 Type II"
+      "e-CF: E31–E47"
     ]
   },
 
@@ -828,7 +826,7 @@ window.EIMS_DB = {
         subheadline: "More than 15 years perfecting business management software for the Latin American market.",
         items: [
           { icon: "cloud",       color: "#4F8EF7", title: "100% Cloud-based",         description: "Access from any device, anywhere, with no server installations or maintenance." },
-          { icon: "shield",      color: "#34D399", title: "Bank-grade security",       description: "AES-256 encryption, automatic daily backups and ISO 27001 certification to protect your data." },
+          { icon: "shield",      color: "#34D399", title: "Bank-grade security",       description: "AES-256 encryption, automatic daily backups to protect your data." },
           { icon: "zap",         color: "#0DCFDA", title: "Extreme speed",             description: "World-class infrastructure with response time under 200ms and 99.9% guaranteed uptime." },
           { icon: "life-buoy",   color: "#A78BFA", title: "24/7 Support",              description: "Team of experts available via chat, phone and video. Response guaranteed in under 2 hours." },
           { icon: "trending-up", color: "#FBBF24", title: "Unlimited scalability",     description: "Grow from 1 user to thousands. Add modules, branches and users whenever you need." },
@@ -1072,7 +1070,7 @@ window.EIMS_DB = {
             ]
           }
         ],
-        badges: ["Certified DGII Provider", "ISO 27001", "SOC 2 Type II"]
+        badges: ["Certified DGII Provider"]
       }
     }
   }
