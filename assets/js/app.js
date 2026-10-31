@@ -808,7 +808,7 @@
             <p>${c.subheadline}</p>
             <div class="contact-details">
               <div class="contact-detail"><div class="contact-detail-icon">${icon('phone')}</div><span class="contact-detail-text">${cfg.phone}</span></div>
-              <div class="contact-detail"><div class="contact-detail-icon">${icon('mail')}</div><span class="contact-detail-text">${cfg.email}</span></div>
+              ${cfg.email ? `<div class="contact-detail"><div class="contact-detail-icon">${icon('mail')}</div><span class="contact-detail-text">${cfg.email}</span></div>` : ''}
               <div class="contact-detail"><div class="contact-detail-icon">${icon('map-pin')}</div><span class="contact-detail-text">${cfg.address}</span></div>
             </div>
             <div style="padding:1.5rem;background:rgba(79,142,247,.06);border-radius:var(--r-lg);border:1px solid rgba(79,142,247,.12)">
@@ -820,6 +820,8 @@
             <div class="contact-form">
               <h3 style="margin-bottom:1.5rem;font-size:1.25rem">${c.submitLabel}</h3>
               <form id="contact-form" novalidate>
+                <input id="f-website" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"
+                       style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0"/>
                 <div class="form-row">
                   <div class="form-group">
                     <label class="form-label" for="f-nombre">${f.nameLbl||'Nombre'} *</label>
@@ -856,6 +858,7 @@
                 </button>
               </form>
               <div class="form-success" id="form-success">${icon('check-circle')} ${c.successMsg}</div>
+              <div class="form-error" id="form-error" style="display:none;margin-top:1rem;color:#dc2626;font-size:.9rem"></div>
             </div>
           </div>
         </div>
@@ -1045,10 +1048,35 @@
   function initContactForm() {
     const form    = document.getElementById('contact-form');
     const success = document.getElementById('form-success');
-    form?.addEventListener('submit', e => {
+    const errBox  = document.getElementById('form-error');
+    const c       = renderDB.contact || {};
+    form?.addEventListener('submit', async e => {
+      // 2026-10-31: the request really goes to the server (it used to only show "thank you" and send nothing)
       e.preventDefault();
-      form.style.display = 'none';
-      if (success) success.style.display = 'block';
+      const v = id => (document.getElementById(id)?.value || '').trim();
+      const body = { name: v('f-nombre'), company: v('f-empresa'), email: v('f-email'), phone: v('f-telefono'),
+                     employees: v('f-empleados'), message: v('f-mensaje'), website: v('f-website'), lang: currentLang };
+      const showError = msg => { if (errBox) { errBox.textContent = msg; errBox.style.display = 'block'; } };
+      if (errBox) errBox.style.display = 'none';
+      if (!body.name || !body.company || !body.email) return showError(c.errorRequired || 'Completa nombre, empresa y correo.');
+      const btn = form.querySelector('button[type="submit"]');
+      if (btn) btn.disabled = true;
+      try {
+        const r = await fetch('/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+        const d = await r.json().catch(() => ({}));
+        if (r.ok && d.ok) {
+          form.style.display = 'none';
+          if (success) success.style.display = 'block';
+          return;
+        }
+        showError(d.error === 'email' ? (c.errorEmail || 'Revisa el correo electrónico.')
+          : d.error === 'too_many' ? (c.errorTooMany || 'Demasiados envíos. Intenta más tarde o escríbenos por WhatsApp.')
+          : (c.errorGeneric || 'No se pudo enviar. Intenta de nuevo o escríbenos por WhatsApp.'));
+      } catch {
+        showError(c.errorGeneric || 'No se pudo enviar. Intenta de nuevo o escríbenos por WhatsApp.');
+      } finally {
+        if (btn) btn.disabled = false;
+      }
     });
   }
 

@@ -1,0 +1,15 @@
+# easy-ims.com contact form -- lives in /opt/easyims/website-api on the VPS (src/ = this folder).
+# .env (chmod 600, written by Ed): RESEND_API_KEY, CONTACT_TO. Without them requests are still SAVED in data/.
+name: easyims-webapi
+services:
+  contact:
+    build: ./src
+    restart: unless-stopped
+    env_file: .env
+    volumes: ["./data:/data"]
+    mem_limit: 128m
+    cpus: 0.25
+    networks:
+      edge:
+        aliases: [website-api]
+networks: {edge: {external: true}}

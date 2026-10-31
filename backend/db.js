@@ -7,7 +7,7 @@ window.EIMS_DB = {
 
   /* Content version: change it on every publish. A browser that saved an older copy through the admin panel
      (localStorage "eims_db") drops it instead of showing old content over the published one. */
-  contentVersion: "2026-10-31-3",
+  contentVersion: "2026-10-31-4",
 
   /* ─────────────────────────── SITE CONFIG ─────────────────────────── */
   config: {
@@ -17,7 +17,7 @@ window.EIMS_DB = {
     description: "Plataforma integral de gestión empresarial: facturación, inventario, contabilidad y más.",
     phone:       "+1 (809) 870-8940",
     whatsapp:    "18098708940",
-    email:       "hello@mseller.app",
+    email:       "",                  // the public address goes here once it exists (hidden while empty)
     address:     "Av. Charles Summer No.18, Plaza Los Prados, Santo Domingo, RD",
     trialDays:   15,
     year:        2026,
@@ -647,7 +647,11 @@ window.EIMS_DB = {
       { name: "mensaje",   label: "¿En qué te podemos ayudar?",type:"textarea",required: false, placeholder: "Cuéntanos sobre tu negocio..." }
     ],
     submitLabel: "Solicitar demostración gratuita",
-    successMsg:  "¡Gracias! Uno de nuestros especialistas se comunicará contigo pronto."
+    successMsg:  "¡Gracias! Uno de nuestros especialistas se comunicará contigo pronto.",
+    errorRequired: "Completa nombre, empresa y correo electrónico.",
+    errorEmail:  "Revisa el correo electrónico.",
+    errorTooMany: "Demasiados envíos seguidos. Intenta más tarde o escríbenos por WhatsApp.",
+    errorGeneric: "No se pudo enviar. Intenta de nuevo o escríbenos por WhatsApp."
   },
 
   /* ─────────────────────────── FOOTER ───────────────────────────────── */
@@ -1068,7 +1072,11 @@ window.EIMS_DB = {
         headline:    "Ready to transform your company?",
         subheadline: "Leave us your info and a specialist will contact you in less than 2 hours.",
         submitLabel: "Request free demo",
-        successMsg:  "Thank you! One of our specialists will contact you soon."
+        successMsg:  "Thank you! One of our specialists will contact you soon.",
+        errorRequired: "Please fill in name, company and email.",
+        errorEmail:  "Please check the email address.",
+        errorTooMany: "Too many requests in a row. Try again later or message us on WhatsApp.",
+        errorGeneric: "It could not be sent. Try again or message us on WhatsApp."
       },
       footer: {
         description: "Comprehensive business management platform for Latin America. More than 15 years simplifying business management.",
