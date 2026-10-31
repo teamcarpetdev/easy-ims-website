@@ -112,7 +112,7 @@ window.EIMS_DB = {
     headline: "Tu negocio, en todos tus dispositivos",
     subheadline: "Escritorio, tablet o móvil — Easy-IMS se adapta perfecto a cualquier pantalla sin instalar nada.",
     stats: [
-      { value: 99.9,   suffix: "%",     label: "Disponibilidad garantizada", sublabel: "12 meses consecutivos",  color: "#34D399", ring: true  },
+      { value: 100,    suffix: "%",     label: "Basado en web",              sublabel: "Sin instalar nada",      color: "#34D399", ring: true  },
       { value: 18.5,   suffix: "M+",    label: "e-CF procesados",       sublabel: "Acumulados a la fecha",  color: "#4F8EF7", ring: false, visible: false }, // oculto temporalmente -- reactivar cuando el número sea real
       { value: 2597,   suffix: "+",     label: "Empresas activas",      sublabel: "En Latinoamérica",       color: "#A78BFA", ring: false, visible: false }, // oculto temporalmente -- reactivar cuando el número sea real
       { value: "",     suffix: "Muy fácil", label: "Para certificarte",  sublabel: "Con CerteCF · DGII",    color: "#FBBF24", ring: false }
@@ -150,15 +150,15 @@ window.EIMS_DB = {
     chips: [
       { value: "↑ 12.4%",   label: "Ventas",    labelEn: "Sales",     color: "green"  },
       { value: "147",        label: "Facturas",  labelEn: "Invoices",  color: "blue"   },
-      { value: "99.9%",      label: "Disponibilidad",    labelEn: "Uptime",    color: "purple" }
+      { value: "E31–E47",    label: "e-CF",      labelEn: "e-CF",      color: "purple" }
     ]
   },
 
   /* ─────────────────────────── HERO FLOATING CARDS ───────────────────── */
   heroFloats: [
     { icon: "trending-up", bg: "rgba(52,211,153,.15)",  value: "+38% ventas",     label: "vs. mes anterior" },
-    { icon: "zap",         bg: "rgba(79,142,247,.15)",  value: "Factura en 30s",  label: "CFE automático"   },
-    { icon: "shield",      bg: "rgba(167,139,250,.15)", value: "99.9% Disponibilidad",    label: "Garantizada"      }
+    { icon: "zap",         bg: "rgba(79,142,247,.15)",  value: "e-CF automático", label: "Firma y envío a la DGII" },
+    { icon: "shield",      bg: "rgba(167,139,250,.15)", value: "Respaldos cifrados", label: "En la nube, 90 días" }
   ],
 
   /* ─────────────────────────── HERO MOCKUP (datos demo) ──────────────── */
@@ -210,15 +210,15 @@ window.EIMS_DB = {
   /* ─────────────────────────── HERO ─────────────────────────────────── */
   hero: {
     visible: true,
-    badge:       "🏛️ <span class=\"badge-blink\">En Proceso</span> · Proveedor Certificado DGII · Ley 32-23",
+    badge:       "🏛️ <span class=\"badge-blink\">En Proceso</span> · Certificación de Proveedor DGII · Ley 32-23",
     headline:    "El software empresarial que tu negocio necesita",
-    subheadline: "Facturación electrónica, inventario en tiempo real, contabilidad avanzada y CRM integrado — todo en una sola plataforma inteligente.",
+    subheadline: "Facturación electrónica, inventario en tiempo real, contabilidad y CRM integrado — todo en una sola plataforma inteligente.",
     ctaPrimary:  { label: "Comienza Gratis — 15 días", href: "#contacto" },
     ctaSecondary:{ label: "Ver demostración",           href: "#caracteristicas" },
     trustNote:   "Sin tarjeta de crédito · Sin contrato de permanencia",
     stats: [
       { value: 5000,  suffix: "+",  label: "Empresas activas", visible: false }, // oculto temporalmente -- reactivar cuando el número sea real, solo cambiar a true
-      { value: 99.9,  suffix: "%",  label: "Disponibilidad garantizada" },
+      { value: 10,    suffix: "",   label: "Tipos de e-CF (E31–E47)" },
       { value: 15,    suffix: "+",  label: "Años de experiencia" },
       { value: 24,    suffix: "/7", label: "Soporte disponible" }
     ]
@@ -252,15 +252,15 @@ window.EIMS_DB = {
         label: "Facturación",
         icon:  "receipt",
         color: "#4F8EF7",
-        headline: "e-CF: Facturación electrónica certificada por la DGII",
-        description: "Emite los 10 tipos de Comprobantes Fiscales Electrónicos (e-CF) en segundos. Certificados bajo Ley 32-23 y Decreto 587-24. Modo contingencia automático cuando la DGII no está disponible.",
+        headline: "e-CF: Facturación electrónica según los estándares de la DGII",
+        description: "Emite los 10 tipos de Comprobantes Fiscales Electrónicos (e-CF), validados contra los esquemas XSD de la DGII. Conforme a la Ley 32-23 y el Decreto 587-24, con modo contingencia según el instructivo de la DGII.",
         items: [
           { icon: "file-check",  text: "10 tipos e-CF: E31, E32, E33, E34, E41, E43, E44, E45, E46, E47" },
-          { icon: "key",         text: "Firma digital RSA-SHA256 con certificado .P12 (AES-256)" },
-          { icon: "wifi-off",    text: "Modo contingencia: firma inmediata + retransmisión automática DGII" },
-          { icon: "archive",     text: "Almacenamiento XML/PDF por 10 años (cumplimiento legal)" },
-          { icon: "award",       text: "CerteCF: certifícate en 4 pasos (vs. 15 del proceso tradicional)" },
-          { icon: "shield",      text: "Compatible con Ley 32-23 y Decreto 587-24 — 99.90% uptime" }
+          { icon: "key",         text: "Firma digital RSA-SHA256 con tu certificado .p12, guardado cifrado" },
+          { icon: "wifi-off",    text: "Envío en cola con reintentos automáticos a la DGII" },
+          { icon: "archive",     text: "XML firmado y PDF de cada e-CF, descargables cuando quieras" },
+          { icon: "award",       text: "CerteCF: te guiamos en los 15 pasos de certificación DGII" },
+          { icon: "shield",      text: "Representación impresa con código QR y código de seguridad" }
         ]
       },
       {
@@ -272,10 +272,10 @@ window.EIMS_DB = {
         description: "Gestiona entradas, salidas, transferencias y alertas de stock mínimo desde cualquier lugar.",
         items: [
           { icon: "layers",     text: "Multi-almacén y multi-sucursal" },
-          { icon: "alert-circle",text: "Alertas automáticas de stock mínimo" },
-          { icon: "bar-chart-2",text: "Valoración PEPS, UEPS y Promedio" },
-          { icon: "scan",       text: "Lector de código de barras y QR" },
-          { icon: "truck",      text: "Trazabilidad completa de productos" },
+          { icon: "alert-circle",text: "Alertas de stock mínimo por almacén" },
+          { icon: "bar-chart-2",text: "Costo promedio ponderado, último costo o estándar" },
+          { icon: "scan",       text: "Etiquetas con código de barras y QR; búsqueda con escáner" },
+          { icon: "truck",      text: "Historial de movimientos por artículo y almacén" },
           { icon: "tag",        text: "Gestión de lotes y fechas de vencimiento" }
         ]
       },
@@ -289,10 +289,10 @@ window.EIMS_DB = {
         items: [
           { icon: "git-branch",  text: "Asientos contables automáticos" },
           { icon: "trending-up", text: "Balance, P&G y flujo de caja" },
-          { icon: "file-text",   text: "Reportes DGII y 606 automáticos" },
+          { icon: "file-text",   text: "Reportes DGII 606, 607, 608 e IT-1" },
           { icon: "users",       text: "Cuentas por cobrar y por pagar" },
           { icon: "dollar-sign", text: "Multi-moneda y tasas de cambio" },
-          { icon: "calendar",    text: "Cierres de período automatizados" }
+          { icon: "calendar",    text: "Asiento de cierre automático con vista previa" }
         ]
       },
       {
@@ -304,12 +304,12 @@ window.EIMS_DB = {
         headline: "Gestión de clientes y ventas inteligente",
         description: "Seguimiento completo del ciclo de ventas. Nunca pierdas un cliente potencial.",
         items: [
-          { icon: "user-check",   text: "Pipeline de ventas visual" },
-          { icon: "message-circle",text: "Historial de interacciones completo" },
-          { icon: "target",       text: "Metas y cuotas de vendedores" },
-          { icon: "bell",         text: "Recordatorios y seguimientos automáticos" },
-          { icon: "pie-chart",    text: "Análisis de conversión y ROI" },
-          { icon: "share-2",      text: "Integración con redes sociales" }
+          { icon: "user-check",   text: "Pipeline de ventas visual (arrastrar y soltar)" },
+          { icon: "message-circle",text: "Historial de actividades por oportunidad" },
+          { icon: "target",       text: "Cotizaciones del ERP vinculadas a la oportunidad" },
+          { icon: "bell",         text: "Tareas y seguimientos con fecha de vencimiento" },
+          { icon: "pie-chart",    text: "Tasa de conversión (ganadas vs. perdidas)" },
+          { icon: "share-2",      text: "Entra con tu mismo usuario del ERP (SSO)" }
         ]
       },
       {
@@ -319,13 +319,13 @@ window.EIMS_DB = {
         color: "#FBBF24",
         addon: true,
         headline: "Nómina y RRHH completamente automatizados",
-        description: "Liquidación de salarios, prestaciones y reportes TSS con precisión y en tiempo récord.",
+        description: "Cálculo de salarios, deducciones de ley, prestaciones laborales y archivo TSS desde un solo lugar.",
         items: [
           { icon: "clock",      text: "Control de asistencia y horas extras" },
-          { icon: "percent",    text: "Cálculo automático ISR y AFP/ARS" },
-          { icon: "file",       text: "Reportes TSS y Ministerio de Trabajo" },
+          { icon: "percent",    text: "Cálculo automático de ISR, AFP y SFS" },
+          { icon: "file",       text: "Archivo TSS y declaraciones IR-3 / IR-13" },
           { icon: "award",      text: "Gestión de vacaciones y beneficios" },
-          { icon: "credit-card",text: "Pago en banco directo o en efectivo" },
+          { icon: "credit-card",text: "Archivo de pago para la banca en línea" },
           { icon: "archive",    text: "Historial de nóminas y contratos" }
         ]
       },
@@ -339,11 +339,11 @@ window.EIMS_DB = {
         description: "Registra, deprecia y da seguimiento a cada activo de la empresa desde una sola pantalla.",
         items: [
           { icon: "box",          text: "Registro completo de activos por categoría" },
-          { icon: "trending-down",text: "Depreciación automática (línea recta y otros métodos)" },
-          { icon: "map-pin",      text: "Ubicación y responsable asignado por activo" },
+          { icon: "trending-down",text: "Depreciación en línea recta por corridas de período" },
+          { icon: "map-pin",      text: "Calendario de depreciación de cada activo" },
           { icon: "git-branch",   text: "Integración directa con Contabilidad (asientos automáticos)" },
-          { icon: "file-text",    text: "Reportes de valor en libros y vida útil restante" },
-          { icon: "archive",      text: "Historial completo de bajas, traslados y mejoras" }
+          { icon: "file-text",    text: "Valor en libros y depreciación acumulada por activo" },
+          { icon: "archive",      text: "Bajas de activos con ganancia o pérdida contabilizada" }
         ]
       }
     ]
@@ -358,10 +358,10 @@ window.EIMS_DB = {
     items: [
       { icon: "cloud",       color: "#4F8EF7", title: "100% en la nube",           description: "Accede desde cualquier dispositivo, en cualquier lugar, sin instalaciones ni mantenimiento de servidores." },
       { icon: "shield",      color: "#34D399", title: "Tus datos, protegidos y respaldados", description: "Cada empresa en su propia base de datos, conexión cifrada, certificados de firma guardados cifrados, auditoría de cada cambio y respaldo diario en la nube." },
-      { icon: "zap",         color: "#0DCFDA", title: "Velocidad extrema",          description: "Infraestructura de clase mundial con tiempo de respuesta menor a 200ms y 99.9% de uptime garantizado." },
+      { icon: "zap",         color: "#0DCFDA", title: "Envío ágil a la DGII",       description: "Cada e-CF se firma y se envía a la DGII desde una cola en segundo plano; en nuestras mediciones, la mediana de punta a punta es de unos 7 segundos." },
       { icon: "life-buoy",   color: "#A78BFA", title: "Soporte 24/7",               description: "Equipo de expertos disponible por chat, teléfono y video. Respuesta garantizada en menos de 2 horas." },
-      { icon: "trending-up", color: "#FBBF24", title: "Escalable sin límites",      description: "Crece desde 1 usuario hasta miles. Agrega módulos, sucursales y usuarios cuando los necesites." },
-      { icon: "cpu",         color: "#F87171", title: "Inteligencia artificial",    description: "IA integrada para pronósticos de ventas, detección de anomalías y automatización de tareas repetitivas." }
+      { icon: "trending-up", color: "#FBBF24", title: "Crece a tu ritmo",           description: "Agrega módulos, sucursales y usuarios cuando los necesites; cada módulo se activa o desactiva por empresa." },
+      { icon: "cpu",         color: "#F87171", title: "Inteligencia artificial",    description: "Asistente de IA opcional, activable por empresa, que responde en lenguaje natural sobre artículos, saldos, facturas y la ayuda del sistema." }
     ]
   },
 
@@ -372,16 +372,16 @@ window.EIMS_DB = {
     headline: "Una suite completa de herramientas empresariales",
     subheadline: "Cada módulo es poderoso por sí solo. Juntos son imbatibles.",
     items: [
-      { icon: "receipt",      color: "#4F8EF7",  bg: "#EFF6FF",  title: "Facturación Pro",       description: "CFE, NCF, facturas recurrentes y más.", tag: "Popular" },
+      { icon: "receipt",      color: "#4F8EF7",  bg: "#EFF6FF",  title: "Facturación Pro",       description: "e-CF, NCF, facturas recurrentes y más.", tag: "Popular" },
       { icon: "package",      color: "#0DCFDA",  bg: "#ECFEFF",  title: "Inventario 360",        description: "Multi-almacén, lotes y trazabilidad.", tag: null },
-      { icon: "book-open",    color: "#A78BFA",  bg: "#F5F3FF",  title: "Contabilidad IA",       description: "Cierre contable automatizado con IA.", tag: "Nuevo" },
+      { icon: "book-open",    color: "#A78BFA",  bg: "#F5F3FF",  title: "Contabilidad",          description: "Asientos automáticos y cierre con vista previa.", tag: "Nuevo" },
       { icon: "users",        color: "#34D399",  bg: "#ECFDF5",  title: "CRM Ventas",            description: "Pipeline, cotizaciones y seguimiento.", tag: "Add-on" },
       { icon: "briefcase",    color: "#FBBF24",  bg: "#FFFBEB",  title: "Nómina & RRHH",         description: "TSS, ISR y control de personal.", tag: "Add-on" },
-      { icon: "shopping-cart",color: "#F87171",  bg: "#FEF2F2",  title: "Punto de Venta",        description: "POS táctil para tienda física y online.", tag: null },
+      { icon: "shopping-cart",color: "#F87171",  bg: "#FEF2F2",  title: "Punto de Venta",        description: "POS táctil para tienda física: cajas, turnos y cuadre.", tag: null },
       { icon: "truck",        color: "#60A5FA",  bg: "#EFF6FF",  title: "Compras & Proveedores", description: "Órdenes de compra, recepción e importaciones.", tag: null },
       { icon: "bar-chart-2",  color: "#818CF8",  bg: "#EEF2FF",  title: "Analítica & BI",        description: "Dashboards ejecutivos y KPIs en tiempo real.", tag: "Premium" },
-      { icon: "credit-card",  color: "#F59E0B",  bg: "#FFFBEB",  title: "Gateway de Pagos",      description: "Integración con los principales gateways de pago: tarjetas de crédito/débito, transferencias bancarias y pagos digitales.", tag: "Integrado" },
-      { icon: "box",          color: "#F97316",  bg: "#FFF7ED",  title: "Fixed Assets",          description: "Control de activos fijos y depreciación automática.", tag: "Add-on" }
+      { icon: "credit-card",  color: "#F59E0B",  bg: "#FFFBEB",  title: "Cobros y Medios de Pago", description: "Efectivo, tarjeta (resultado del terminal: aprobado, declinado o pendiente), transferencias y pagos mixtos.", tag: null },
+      { icon: "box",          color: "#F97316",  bg: "#FFF7ED",  title: "Fixed Assets",          description: "Control de activos fijos y depreciación en línea recta.", tag: "Add-on" }
     ]
   },
 
@@ -401,32 +401,32 @@ window.EIMS_DB = {
       {
         icon: "check-square", color: "#4F8EF7",
         title: "Flujos de Aprobación",
-        description: "Sistema multinivel para límites de crédito, órdenes de compra y cambios críticos.",
-        bullets: ["Aprobación por rol: Gerente, Director, CFO", "Solicitudes pendientes con notificaciones", "Auto-rechazo por tiempo límite configurable"]
+        description: "Sistema multinivel para facturas de suplidores y de clientes, pagos a suplidores y límites de crédito.",
+        bullets: ["Aprobación por rol y por monto, con delegaciones", "Bandeja de pendientes con aviso por correo", "Aprobación o rechazo automático según la regla"]
       },
       {
         icon: "cpu", color: "#0DCFDA",
         title: "Agente de IA Empresarial",
-        description: "Asistente conversacional que analiza inventario, AR, AP y proyecciones en lenguaje natural.",
-        bullets: ["Consultas en lenguaje natural en tiempo real", "Proyecciones de cobranza a 30/60/90 días", "Motor LLM local — datos 100% en tus servidores"]
+        description: "Asistente conversacional (opcional, se activa por empresa) que consulta artículos, saldos, facturas y reportes.",
+        bullets: ["Consultas en lenguaje natural en tiempo real", "Usa datos de tu empresa solo si el administrador lo permite", "Gemini por defecto; Groq, OpenRouter u Ollama (local) opcionales"]
       },
       {
         icon: "building-2", color: "#34D399",
         title: "Multi-empresa / Multi-tenant",
-        description: "Base de datos dedicada e independiente por empresa. Cero riesgo de mezcla de datos.",
+        description: "Base de datos dedicada e independiente por empresa: los datos de una empresa nunca comparten base con otra.",
         bullets: ["Arquitectura DB-per-tenant en PostgreSQL", "JWT con routing automático por empresa", "Administración centralizada en una sola interfaz"]
       },
       {
         icon: "shield-check", color: "#FBBF24",
         title: "Auditoría y Cumplimiento",
-        description: "Registro inmutable de toda actividad con trazabilidad a nivel de campo individual.",
+        description: "Registro de actividad y auditoría por campo, protegida contra cambios en la base de datos.",
         bullets: ["Log: usuario, IP, dispositivo, geolocalización", "Auditoría por campo: valor anterior vs. nuevo", "Bloqueo de cuenta tras intentos fallidos"]
       },
       {
         icon: "globe", color: "#F87171",
         title: "Validación por País",
         description: "Reglas configurables por país: RNC, CÉDULA, EIN, RFC y cualquier formato personalizado.",
-        bullets: ["Patrones regex configurables por campo y país", "Mensajes de error personalizados por localización", "Atributos requeridos según tipo de negocio"]
+        bullets: ["Patrones regex configurables por campo y país", "Mensajes de error configurables", "Atributos requeridos por país"]
       },
       {
         icon: "toggle-right", color: "#60A5FA",
@@ -444,7 +444,7 @@ window.EIMS_DB = {
         icon: "bar-chart-2", color: "#34D399",
         title: "Inteligencia Financiera",
         description: "P&G, Balance General, Flujo de Caja y Aging de AR/AP en tiempo real.",
-        bullets: ["Aging en buckets 0-30, 31-60, 61-90, 90+ días", "Proyecciones de cobranza y pagos por período", "Top clientes y artículos por volumen de ventas"]
+        bullets: ["Aging: al día, 1-30, 31-60, 61-90 y 90+ días", "Presupuesto y pronóstico vs. real por mes", "Top clientes y artículos por volumen de ventas"]
       }
     ]
   },
@@ -456,7 +456,7 @@ window.EIMS_DB = {
     items: [
       { value: 2597,     suffix: "+",  label: "Empresas activas",              icon: "briefcase" },
       { value: 18500000, suffix: "+",  label: "e-CF procesados",               icon: "receipt"   },
-      { value: 99.9,     suffix: "%",  label: "Disponibilidad garantizada DGII",       icon: "server"    },
+      { value: 10,       suffix: "",   label: "Tipos de e-CF soportados (E31–E47)",    icon: "server"    },
       { value: 2000,     suffix: "+",  label: "Desarrolladores en comunidad",  icon: "users"     }
     ]
   },
@@ -468,8 +468,8 @@ window.EIMS_DB = {
     headline: "Empieza en minutos, no en semanas",
     subheadline: "Nuestro proceso de incorporación te guía paso a paso para que estés operativo en tiempo récord.",
     steps: [
-      { number: "01", icon: "user-plus",   title: "Crea tu cuenta",       description: "Regístrate gratis en menos de 2 minutos. Sin tarjeta de crédito ni compromiso." },
-      { number: "02", icon: "settings",    title: "Configura tu empresa",  description: "Importa tus productos, clientes y catálogos con nuestro asistente inteligente." },
+      { number: "01", icon: "user-plus",   title: "Solicita tu prueba",   description: "Déjanos tus datos y te creamos una empresa de prueba con datos de demostración. Sin tarjeta de crédito ni compromiso." },
+      { number: "02", icon: "settings",    title: "Configura tu empresa",  description: "Importa tus productos, clientes y catálogos con plantillas de Excel." },
       { number: "03", icon: "play-circle", title: "Comienza a operar",     description: "Tu equipo estará listo para facturar, gestionar inventario y más desde el día uno." },
       { number: "04", icon: "trending-up", title: "Crece sin límites",     description: "Agrega módulos, usuarios y sucursales conforme tu negocio escala." }
     ]
@@ -579,14 +579,14 @@ window.EIMS_DB = {
     headline: "Resolvemos tus dudas",
     subheadline: "Si no encuentras la respuesta que buscas, nuestro equipo está disponible 24/7.",
     items: [
-      { question: "¿Necesito instalar algún software en mi computadora?",        answer: "No. Easy-IMS es 100% en la nube. Solo necesitas un navegador web y conexión a internet. Funciona en Windows, Mac, Linux, iOS y Android." },
+      { question: "¿Necesito instalar algún software en mi computadora?",        answer: "No. Easy-IMS es 100% en la nube. Solo necesitas un navegador web y conexión a internet. Funciona en el navegador de Windows, Mac, Linux, iOS y Android." },
       { question: "¿Cómo funciona el período de prueba gratuita?",               answer: "Tienes 15 días de acceso completo a todos los módulos del plan Professional, sin restricciones y sin necesidad de tarjeta de crédito. Al final del período, decides si continúas." },
-      { question: "¿Puedo migrar mis datos desde otro sistema?",                 answer: "Sí. Nuestro equipo de implementación te ayuda a importar clientes, productos, inventario y historial contable desde Excel, CSV o directamente desde tu sistema actual." },
-      { question: "¿Easy-IMS cumple con la normativa de la DGII?",              answer: "Totalmente. Somos un proveedor certificado de Comprobantes Fiscales Electrónicos (CFE). Los reportes 606, 607 y 608 se generan automáticamente según las regulaciones vigentes." },
+      { question: "¿Puedo migrar mis datos desde otro sistema?",                 answer: "Sí. Nuestro equipo de implementación te ayuda a importar clientes, productos, inventario y historial contable con plantillas de Excel y nuestra herramienta de migración de datos." },
+      { question: "¿Easy-IMS cumple con la normativa de la DGII?",              answer: "Sí. Emite los e-CF E31–E47 según los esquemas XSD de la DGII y genera los reportes 606, 607, 608 e IT-1. Nuestra certificación como proveedor de servicios de facturación electrónica ante la DGII está en proceso." },
       { question: "¿Qué pasa con mis datos si cancelo la suscripción?",         answer: "Tus datos son siempre tuyos. Al cancelar, puedes exportar todo tu historial en formatos estándar (Excel, PDF, XML) dentro de los 90 días posteriores a la cancelación." },
       { question: "¿Cuántos usuarios puedo tener en mi cuenta?",                answer: "Depende del plan. Starter: hasta 3 usuarios. Professional: hasta 15. Puedes añadir usuarios adicionales en cualquier momento." },
       { question: "¿Ofrecen capacitación para usar el sistema?",                answer: "Sí. Todos los planes incluyen acceso a nuestra academia online con más de 200 tutoriales en video." },
-      { question: "¿Qué tan segura es la plataforma?",                          answer: "Utilizamos cifrado AES-256 para todos los datos en tránsito y reposo. Realizamos backups automáticos cada hora y contamos con infraestructura redundante con 99.9% de uptime garantizado." }
+      { question: "¿Qué tan segura es la plataforma?",                          answer: "Cada empresa tiene su propia base de datos. Las conexiones van cifradas por HTTPS, los certificados de firma se guardan cifrados, cada cambio queda auditado y los respaldos se guardan cifrados en la nube por 90 días (diarios o semanales, según tu empresa). El portal de facturas usa doble factor (MFA)." }
     ]
   },
 
@@ -601,7 +601,7 @@ window.EIMS_DB = {
       "Sin tarjeta de crédito",
       "Sin contrato de permanencia",
       "Soporte incluido",
-      "Datos 100% seguros"
+      "Datos cifrados y respaldados"
     ]
   },
 
@@ -675,7 +675,7 @@ window.EIMS_DB = {
       { platform: "twitter",   href: "#", icon: "twitter" }
     ],
     badges: [
-      "Proveedor Certificado DGII",
+      "Proveedor DGII · certificación en proceso",
       "Ley 32-23 · Decreto 587-24",
       "e-CF: E31–E47"
     ]
@@ -720,15 +720,15 @@ window.EIMS_DB = {
         ]
       },
       hero: {
-        badge:       "🚀 New version 3.0 available",
+        badge:       "🏛️ <span class=\"badge-blink\">In Progress</span> · DGII Provider Certification · Law 32-23",
         headline:    "The business software your company needs",
-        subheadline: "Electronic billing, real-time inventory, advanced accounting and integrated CRM — all in one intelligent platform.",
+        subheadline: "Electronic billing, real-time inventory, accounting and integrated CRM — all in one intelligent platform.",
         ctaPrimary:   { label: "Start Free — 15 days", href: "#contacto" },
         ctaSecondary: { label: "Watch demo",            href: "#caracteristicas" },
         trustNote:   "No credit card · No commitment contract",
         stats: [
           { value: 5000,    suffix: "+",  label: "Active companies", visible: false }, // temporarily hidden -- flip to true when the number is real
-          { value: 99.9,    suffix: "%",  label: "Guaranteed uptime" },
+          { value: 10,      suffix: "",   label: "e-CF types (E31–E47)" },
           { value: 15,      suffix: "+",  label: "Years of experience" },
           { value: 24,      suffix: "/7", label: "Support available" }
         ]
@@ -743,15 +743,15 @@ window.EIMS_DB = {
         tabs: [
           {
             id: "facturacion", label: "e-CF Billing", icon: "receipt", color: "#4F8EF7",
-            headline:    "e-CF: Electronic billing certified by DGII",
-            description: "Issue all 10 types of Electronic Tax Receipts (e-CF) in seconds. Certified under Law 32-23 and Decree 587-24. Automatic contingency mode when DGII is unavailable.",
+            headline:    "e-CF: Electronic billing to DGII standards",
+            description: "Issue all 10 types of Electronic Tax Receipts (e-CF), validated against DGII's XSD schemas. Compliant with Law 32-23 and Decree 587-24, with contingency mode per DGII's instructions.",
             items: [
               { icon: "file-check", text: "10 e-CF types: E31, E32, E33, E34, E41, E43, E44, E45, E46, E47" },
-              { icon: "key",        text: "RSA-SHA256 digital signature with .P12 certificate (AES-256)" },
-              { icon: "wifi-off",   text: "Contingency mode: immediate signing + automatic DGII retry" },
-              { icon: "archive",    text: "10-year XML/PDF storage (legal compliance requirement)" },
-              { icon: "award",      text: "CerteCF: get certified in 4 steps (vs. 15 traditional)" },
-              { icon: "shield",     text: "Compliant with Law 32-23 & Decree 587-24 — 99.90% uptime" }
+              { icon: "key",        text: "RSA-SHA256 digital signature with your .p12 certificate, stored encrypted" },
+              { icon: "wifi-off",   text: "Queued sending with automatic retries to DGII" },
+              { icon: "archive",    text: "Signed XML and PDF of every e-CF, downloadable anytime" },
+              { icon: "award",      text: "CerteCF: we guide you through DGII's 15 certification steps" },
+              { icon: "shield",     text: "Printed representation with QR code and security code" }
             ]
           },
           {
@@ -760,10 +760,10 @@ window.EIMS_DB = {
             description: "Manage stock entries, exits, transfers and low-stock alerts from anywhere.",
             items: [
               { icon: "layers",      text: "Multi-warehouse and multi-branch" },
-              { icon: "alert-circle",text: "Automatic minimum stock alerts" },
-              { icon: "bar-chart-2", text: "FIFO, LIFO and Average valuation" },
-              { icon: "scan",        text: "Barcode and QR reader" },
-              { icon: "truck",       text: "Full product traceability" },
+              { icon: "alert-circle",text: "Minimum stock alerts per warehouse" },
+              { icon: "bar-chart-2", text: "Weighted average, last cost or standard cost" },
+              { icon: "scan",        text: "Barcode and QR labels; scanner search" },
+              { icon: "truck",       text: "Movement history per item and warehouse" },
               { icon: "tag",         text: "Batch and expiration date management" }
             ]
           },
@@ -774,10 +774,10 @@ window.EIMS_DB = {
             items: [
               { icon: "git-branch",  text: "Automatic journal entries" },
               { icon: "trending-up", text: "Balance sheet, P&L and cash flow" },
-              { icon: "file-text",   text: "Automatic DGII and 606 reports" },
+              { icon: "file-text",   text: "DGII reports 606, 607, 608 and IT-1" },
               { icon: "users",       text: "Accounts receivable and payable" },
               { icon: "dollar-sign", text: "Multi-currency and exchange rates" },
-              { icon: "calendar",    text: "Automated period closings" }
+              { icon: "calendar",    text: "Automatic closing entry with preview" }
             ]
           },
           {
@@ -785,24 +785,24 @@ window.EIMS_DB = {
             headline:    "Intelligent customer and sales management",
             description: "Complete sales cycle tracking. Never lose a potential customer again.",
             items: [
-              { icon: "user-check",    text: "Visual sales pipeline" },
-              { icon: "message-circle",text: "Complete interaction history" },
-              { icon: "target",        text: "Sales rep goals and quotas" },
-              { icon: "bell",          text: "Automatic reminders and follow-ups" },
-              { icon: "pie-chart",     text: "Conversion and ROI analysis" },
-              { icon: "share-2",       text: "Social media integration" }
+              { icon: "user-check",    text: "Visual sales pipeline (drag and drop)" },
+              { icon: "message-circle",text: "Activity history per opportunity" },
+              { icon: "target",        text: "ERP quotes linked to the opportunity" },
+              { icon: "bell",          text: "Tasks and follow-ups with due dates" },
+              { icon: "pie-chart",     text: "Conversion rate (won vs. lost)" },
+              { icon: "share-2",       text: "Sign in with your ERP user (SSO)" }
             ]
           },
           {
             id: "nomina", label: "Payroll", icon: "briefcase", color: "#FBBF24", addon: true,
             headline:    "Fully automated payroll & HR",
-            description: "Salary liquidation, benefits and TSS reports with precision and in record time.",
+            description: "Salary calculation, statutory deductions, severance benefits and the TSS file from one place.",
             items: [
               { icon: "clock",       text: "Attendance and overtime control" },
-              { icon: "percent",     text: "Automatic ISR and AFP/ARS calculation" },
-              { icon: "file",        text: "TSS and Labor Ministry reports" },
+              { icon: "percent",     text: "Automatic ISR, AFP and SFS calculation" },
+              { icon: "file",        text: "TSS file and IR-3 / IR-13 returns" },
               { icon: "award",       text: "Vacation and benefits management" },
-              { icon: "credit-card", text: "Direct bank or cash payment" },
+              { icon: "credit-card", text: "Payment file for online banking" },
               { icon: "archive",     text: "Payroll history and contracts" }
             ]
           },
@@ -812,11 +812,11 @@ window.EIMS_DB = {
             description: "Register, depreciate and track every asset in the company from a single screen.",
             items: [
               { icon: "box",          text: "Full asset registry by category" },
-              { icon: "trending-down",text: "Automatic depreciation (straight-line and other methods)" },
-              { icon: "map-pin",      text: "Location and assigned custodian per asset" },
+              { icon: "trending-down",text: "Straight-line depreciation in period runs" },
+              { icon: "map-pin",      text: "Depreciation schedule for every asset" },
               { icon: "git-branch",   text: "Direct Accounting integration (automatic journal entries)" },
-              { icon: "file-text",    text: "Book value and remaining useful-life reports" },
-              { icon: "archive",      text: "Full history of disposals, transfers and improvements" }
+              { icon: "file-text",    text: "Book value and accumulated depreciation per asset" },
+              { icon: "archive",      text: "Asset disposals with posted gain or loss" }
             ]
           }
         ]
@@ -828,10 +828,10 @@ window.EIMS_DB = {
         items: [
           { icon: "cloud",       color: "#4F8EF7", title: "100% Cloud-based",         description: "Access from any device, anywhere, with no server installations or maintenance." },
           { icon: "shield",      color: "#34D399", title: "Your data, protected and backed up", description: "Each company in its own database, encrypted connection, signing certificates stored encrypted, every change audited and a daily cloud backup." },
-          { icon: "zap",         color: "#0DCFDA", title: "Extreme speed",             description: "World-class infrastructure with response time under 200ms and 99.9% guaranteed uptime." },
+          { icon: "zap",         color: "#0DCFDA", title: "Fast DGII sending",         description: "Each e-CF is signed and sent to DGII from a background queue; in our measurements the end-to-end median is about 7 seconds." },
           { icon: "life-buoy",   color: "#A78BFA", title: "24/7 Support",              description: "Team of experts available via chat, phone and video. Response guaranteed in under 2 hours." },
-          { icon: "trending-up", color: "#FBBF24", title: "Unlimited scalability",     description: "Grow from 1 user to thousands. Add modules, branches and users whenever you need." },
-          { icon: "cpu",         color: "#F87171", title: "Artificial intelligence",   description: "Built-in AI for sales forecasting, anomaly detection and automation of repetitive tasks." }
+          { icon: "trending-up", color: "#FBBF24", title: "Grow at your pace",         description: "Add modules, branches and users whenever you need; each module is switched on or off per company." },
+          { icon: "cpu",         color: "#F87171", title: "Artificial intelligence",   description: "Optional AI assistant, enabled per company, that answers in natural language about items, balances, invoices and the system help." }
         ]
       },
       devices: {
@@ -839,10 +839,10 @@ window.EIMS_DB = {
         headline: "Your business, on every device",
         subheadline: "Desktop, tablet or mobile — Easy-IMS adapts perfectly to any screen with nothing to install.",
         stats: [
-          { label: "Guaranteed uptime",   sublabel: "12 consecutive months" },
+          { label: "Browser-based",       sublabel: "Nothing to install"    },
           { label: "e-CF processed",      sublabel: "Accumulated to date"   },
           { label: "Active companies",    sublabel: "Across Latin America"   },
-          { label: "Steps to certify",    sublabel: "With CerteCF · DGII"   }
+          { label: "To get certified",    sublabel: "With CerteCF · DGII", suffix: "Very easy" }
         ]
       },
       ui: {
@@ -866,8 +866,8 @@ window.EIMS_DB = {
       },
       heroFloats: [
         { value: "+38% sales",     label: "vs. last month" },
-        { value: "Invoice in 30s", label: "Auto CFE"       },
-        { value: "99.9% Uptime",   label: "Guaranteed"     }
+        { value: "Automatic e-CF", label: "Signed and sent to DGII" },
+        { value: "Encrypted backups", label: "In the cloud, 90 days" }
       ],
       mockup: {
         chartLabel: "Sales — last 12 months",
@@ -888,14 +888,14 @@ window.EIMS_DB = {
         subheadline: "Easy-IMS is built on a production-proven architecture with the advanced capabilities that demanding businesses require.",
         items: [
           { title: "Rules & Workflow Engine",       description: "Define business rules that execute automatically based on configurable conditions.",                bullets: ["Conditions: ≤, BETWEEN, ELSE / default", "Automatic escalation by approver role", "Full decision history and audit trail"] },
-          { title: "Approval Workflows",            description: "Multi-level system for credit limits, purchase orders and critical changes.",                        bullets: ["Approval by role: Manager, Director, CFO", "Pending requests with notifications", "Auto-rejection by configurable time limit"] },
-          { title: "AI Business Agent",             description: "Conversational assistant that analyzes inventory, AR, AP and forecasts in natural language.",         bullets: ["Natural language queries in real time", "Collections projections at 30/60/90 days", "Local LLM engine — data stays on your servers"] },
-          { title: "Multi-Company / Multi-Tenant",  description: "Dedicated, independent database per company. Zero data mixing risk.",                               bullets: ["DB-per-tenant architecture on PostgreSQL", "JWT with automatic per-company routing", "Centralized administration in a single interface"] },
-          { title: "Audit & Compliance",            description: "Immutable record of all activity with field-level traceability.",                                     bullets: ["Log: user, IP, device, geolocation", "Field audit: previous vs. new value", "Account lockout after failed access attempts"] },
-          { title: "Country-specific Validation",   description: "Configurable rules per country: RNC, CÉDULA, EIN, RFC and any custom format.",                      bullets: ["Configurable regex patterns per field and country", "Custom error messages by locale", "Required attributes by business type"] },
+          { title: "Approval Workflows",            description: "Multi-level system for supplier and customer invoices, supplier payments and credit limits.",           bullets: ["Approval by role and amount, with delegations", "Pending inbox with email alerts", "Automatic approval or rejection per rule"] },
+          { title: "AI Business Agent",             description: "Conversational assistant (optional, enabled per company) that looks up items, balances, invoices and reports.", bullets: ["Natural language queries in real time", "Uses your company data only if the administrator allows it", "Gemini by default; Groq, OpenRouter or Ollama (local) optional"] },
+          { title: "Multi-Company / Multi-Tenant",  description: "Dedicated, independent database per company: one company's data never shares a database with another's.",                               bullets: ["DB-per-tenant architecture on PostgreSQL", "JWT with automatic per-company routing", "Centralized administration in a single interface"] },
+          { title: "Audit & Compliance",            description: "Activity log and field-level audit, protected against changes in the database.",                                     bullets: ["Log: user, IP, device, geolocation", "Field audit: previous vs. new value", "Account lockout after failed access attempts"] },
+          { title: "Country-specific Validation",   description: "Configurable rules per country: RNC, CÉDULA, EIN, RFC and any custom format.",                      bullets: ["Configurable regex patterns per field and country", "Configurable error messages", "Required attributes per country"] },
           { title: "Dynamic Modules",               description: "Enable or disable features per company in real time. Feature flag architecture.",                   bullets: ["Module registry with soft dependencies", "Routes and menus hidden automatically", "Per-company activation without system restart"] },
           { title: "Granular Access Control",       description: "Roles, permissions, groups and temporary delegations with automatic expiration.",                   bullets: ["Permissions by module, route and action", "Temporary delegations with expiry date", "Role groups for bulk assignment"] },
-          { title: "Financial Intelligence",        description: "P&L, Balance Sheet, Cash Flow and AR/AP Aging in real time.",                                       bullets: ["Aging in 0-30, 31-60, 61-90, 90+ day buckets", "Collections and payment projections by period", "Top customers and items by sales volume"] }
+          { title: "Financial Intelligence",        description: "P&L, Balance Sheet, Cash Flow and AR/AP Aging in real time.",                                       bullets: ["Aging: current, 1-30, 31-60, 61-90 and 90+ days", "Budget and forecast vs. actual by month", "Top customers and items by sales volume"] }
         ]
       },
       modules: {
@@ -903,16 +903,16 @@ window.EIMS_DB = {
         headline:    "A complete suite of business tools",
         subheadline: "Each module is powerful on its own. Together they are unbeatable.",
         items: [
-          { icon: "receipt",       color: "#4F8EF7", bg: "#EFF6FF", title: "Pro Billing",            description: "CFE, NCF, recurring invoices and more.",         tag: "Popular" },
+          { icon: "receipt",       color: "#4F8EF7", bg: "#EFF6FF", title: "Pro Billing",            description: "e-CF, NCF, recurring invoices and more.",         tag: "Popular" },
           { icon: "package",       color: "#0DCFDA", bg: "#ECFEFF", title: "Inventory 360",          description: "Multi-warehouse, batches and traceability.",       tag: null },
-          { icon: "book-open",     color: "#A78BFA", bg: "#F5F3FF", title: "AI Accounting",          description: "Automated accounting close with AI.",              tag: "New" },
+          { icon: "book-open",     color: "#A78BFA", bg: "#F5F3FF", title: "Accounting",             description: "Automatic journal entries and closing with preview.",              tag: "New" },
           { icon: "users",         color: "#34D399", bg: "#ECFDF5", title: "Sales CRM",              description: "Pipeline, quotes and follow-up.",                  tag: "Add-on" },
           { icon: "briefcase",     color: "#FBBF24", bg: "#FFFBEB", title: "Payroll & HR",           description: "TSS, ISR and staff management.",                   tag: "Add-on" },
-          { icon: "shopping-cart", color: "#F87171", bg: "#FEF2F2", title: "Point of Sale",          description: "Touch POS for physical and online stores.",         tag: null },
+          { icon: "shopping-cart", color: "#F87171", bg: "#FEF2F2", title: "Point of Sale",          description: "Touch POS for physical stores: registers, shifts and cash count.",         tag: null },
           { icon: "truck",         color: "#60A5FA", bg: "#EFF6FF", title: "Purchasing & Suppliers", description: "Purchase orders, reception and imports.",           tag: null },
           { icon: "bar-chart-2",   color: "#818CF8", bg: "#EEF2FF", title: "Analytics & BI",         description: "Executive dashboards and real-time KPIs.",         tag: "Premium" },
-          { icon: "credit-card",   color: "#F59E0B", bg: "#FFFBEB", title: "Payment Gateway",         description: "Integration with major payment gateways: credit/debit cards, bank transfers and digital payments.", tag: "Integrated" },
-          { icon: "box",           color: "#F97316", bg: "#FFF7ED", title: "Fixed Assets",           description: "Fixed asset tracking and automatic depreciation.", tag: "Add-on" }
+          { icon: "credit-card",   color: "#F59E0B", bg: "#FFFBEB", title: "Payments & Methods",      description: "Cash, card (terminal result: approved, declined or pending), transfers and split payments.", tag: null },
+          { icon: "box",           color: "#F97316", bg: "#FFF7ED", title: "Fixed Assets",           description: "Fixed asset tracking and straight-line depreciation.", tag: "Add-on" }
         ]
       },
       stats: {
@@ -920,7 +920,7 @@ window.EIMS_DB = {
         items: [
           { value: 2597,     suffix: "+", label: "Active companies",             icon: "briefcase" },
           { value: 18500000, suffix: "+", label: "e-CF invoices processed",      icon: "receipt"   },
-          { value: 99.9,     suffix: "%", label: "Guaranteed DGII uptime",       icon: "server"    },
+          { value: 10,       suffix: "",  label: "Supported e-CF types (E31–E47)", icon: "server"  },
           { value: 2000,     suffix: "+", label: "Developers in community",      icon: "users"     }
         ]
       },
@@ -929,8 +929,8 @@ window.EIMS_DB = {
         headline:    "Get started in minutes, not weeks",
         subheadline: "Our onboarding process guides you step by step so you're operational in record time.",
         steps: [
-          { number: "01", icon: "user-plus",   title: "Create your account",    description: "Register for free in less than 2 minutes. No credit card or commitment required." },
-          { number: "02", icon: "settings",    title: "Configure your business", description: "Import your products, customers and catalogs with our intelligent assistant." },
+          { number: "01", icon: "user-plus",   title: "Request your trial",     description: "Leave us your details and we create a trial company with demo data for you. No credit card or commitment required." },
+          { number: "02", icon: "settings",    title: "Configure your business", description: "Import your products, customers and catalogs with Excel templates." },
           { number: "03", icon: "play-circle", title: "Start operating",         description: "Your team will be ready to invoice, manage inventory and more from day one." },
           { number: "04", icon: "trending-up", title: "Grow without limits",     description: "Add modules, users and branches as your business scales." }
         ]
@@ -1004,22 +1004,22 @@ window.EIMS_DB = {
         headline:    "We answer your questions",
         subheadline: "If you can't find the answer you're looking for, our team is available 24/7.",
         items: [
-          { question: "Do I need to install any software on my computer?",      answer: "No. Easy-IMS is 100% cloud-based. All you need is a web browser and an internet connection. It works on Windows, Mac, Linux, iOS and Android." },
+          { question: "Do I need to install any software on my computer?",      answer: "No. Easy-IMS is 100% cloud-based. All you need is a web browser and an internet connection. It works in the browser on Windows, Mac, Linux, iOS and Android." },
           { question: "How does the free trial work?",                          answer: "You get 15 days of full access to all Professional plan modules, with no restrictions and no credit card required. At the end of the period, you decide if you continue." },
-          { question: "Can I migrate my data from another system?",             answer: "Yes. Our implementation team helps you import customers, products, inventory and accounting history from Excel, CSV or directly from your current system." },
-          { question: "Does Easy-IMS comply with DGII regulations?",           answer: "Absolutely. We are a certified Electronic Tax Receipt (CFE) provider. Reports 606, 607 and 608 are generated automatically according to current regulations." },
+          { question: "Can I migrate my data from another system?",             answer: "Yes. Our implementation team helps you import customers, products, inventory and accounting history with Excel templates and our data migration tool." },
+          { question: "Does Easy-IMS comply with DGII regulations?",           answer: "Yes. It issues e-CF E31–E47 to DGII's XSD schemas and produces reports 606, 607, 608 and IT-1. Our certification as an electronic invoicing service provider with DGII is in progress." },
           { question: "What happens to my data if I cancel my subscription?",  answer: "Your data is always yours. Upon cancellation, you can export your full history in standard formats (Excel, PDF, XML) within 90 days after cancellation." },
           { question: "How many users can I have in my account?",              answer: "It depends on the plan. Starter: up to 3 users. Professional: up to 15. You can add more users at any time." },
           { question: "Do you offer training for using the system?",           answer: "Yes. All plans include access to our online academy with more than 200 video tutorials." },
-          { question: "How secure is the platform?",                           answer: "We use AES-256 encryption for all data in transit and at rest. We perform automatic hourly backups and have redundant infrastructure with 99.9% guaranteed uptime." }
+          { question: "How secure is the platform?",                           answer: "Each company has its own database. Connections are encrypted over HTTPS, signing certificates are stored encrypted, every change is audited and backups are kept encrypted in the cloud for 90 days (daily or weekly, per company). The invoice portal uses two-factor authentication (MFA)." }
         ]
       },
       cta: {
         headline:    "Start today. Risk-free.",
-        subheadline: "Join more than 5,000 companies that already manage their business intelligently with Easy-IMS.",
+        subheadline: "Simplify the management of your business with Easy-IMS.",
         ctaPrimary:   { label: "Try free 15 days",    href: "#contacto" },
         ctaSecondary: { label: "Talk to an expert",   href: "#contacto" },
-        trustItems: ["No credit card", "No commitment contract", "Support included", "100% secure data"]
+        trustItems: ["No credit card", "No commitment contract", "Support included", "Encrypted, backed-up data"]
       },
       contact: {
         sectionLabel: "Contact",
@@ -1071,7 +1071,7 @@ window.EIMS_DB = {
             ]
           }
         ],
-        badges: ["Certified DGII Provider"]
+        badges: ["DGII provider · certification in progress", "Law 32-23 · Decree 587-24", "e-CF: E31–E47"]
       }
     }
   }
