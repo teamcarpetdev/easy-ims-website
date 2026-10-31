@@ -25,10 +25,11 @@
   try {
     const s = localStorage.getItem('eims_db');
     if (s) {
-      // Merge saved admin changes ON TOP of the current defaults.
-      // This preserves any NEW fields added to db.js (like countries, marketBadge)
-      // even when localStorage still holds an older snapshot.
-      _merge(DB, JSON.parse(s));
+      // Merge saved admin changes ON TOP of the current defaults -- only when they were saved against THIS
+      // published version (contentVersion): an older snapshot would hide what was published since.
+      const saved = JSON.parse(s);
+      if (saved && saved.contentVersion === DB.contentVersion) _merge(DB, saved);
+      else localStorage.removeItem('eims_db');
     }
   } catch(e){}
 

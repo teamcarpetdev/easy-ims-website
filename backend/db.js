@@ -5,6 +5,10 @@
  */
 window.EIMS_DB = {
 
+  /* Content version: change it on every publish. A browser that saved an older copy through the admin panel
+     (localStorage "eims_db") drops it instead of showing old content over the published one. */
+  contentVersion: "2026-10-31-2",
+
   /* ─────────────────────────── SITE CONFIG ─────────────────────────── */
   config: {
     siteName:    "Easy-IMS",
@@ -524,7 +528,7 @@ window.EIMS_DB = {
       },
       {
         id:          "professional",
-        name:        "Professional",
+        name:        "Profesional",
         description: "Para empresas en crecimiento que necesitan más",
         price_monthly: 79,
         price_annual:  63,
@@ -602,11 +606,11 @@ window.EIMS_DB = {
     subheadline: "Si no encuentras la respuesta que buscas, nuestro equipo está disponible 24/7.",
     items: [
       { question: "¿Necesito instalar algún software en mi computadora?",        answer: "No. Easy-IMS es 100% en la nube. Solo necesitas un navegador web y conexión a internet. Funciona en el navegador de Windows, Mac, Linux, iOS y Android." },
-      { question: "¿Cómo funciona el período de prueba gratuita?",               answer: "Tienes 15 días de acceso completo a todos los módulos del plan Professional, sin restricciones y sin necesidad de tarjeta de crédito. Al final del período, decides si continúas." },
+      { question: "¿Cómo funciona el período de prueba gratuita?",               answer: "Tienes 15 días de acceso completo a todos los módulos del plan Profesional, sin restricciones y sin necesidad de tarjeta de crédito. Al final del período, decides si continúas." },
       { question: "¿Puedo migrar mis datos desde otro sistema?",                 answer: "Sí. Nuestro equipo de implementación te ayuda a importar clientes, productos, inventario y historial contable con plantillas de Excel y nuestra herramienta de migración de datos." },
       { question: "¿Easy-IMS cumple con la normativa de la DGII?",              answer: "Sí. Emite los e-CF E31–E47 según los esquemas XSD de la DGII y genera los reportes 606, 607, 608 e IT-1. Nuestra certificación como proveedor de servicios de facturación electrónica ante la DGII está en proceso." },
       { question: "¿Qué pasa con mis datos si cancelo la suscripción?",         answer: "Tus datos son siempre tuyos. Al cancelar, puedes exportar todo tu historial en formatos estándar (Excel, PDF, XML) dentro de los 90 días posteriores a la cancelación." },
-      { question: "¿Cuántos usuarios puedo tener en mi cuenta?",                answer: "Depende del plan. Starter: hasta 3 usuarios. Professional: hasta 15. Puedes añadir usuarios adicionales en cualquier momento." },
+      { question: "¿Cuántos usuarios puedo tener en mi cuenta?",                answer: "Depende del plan. Starter: hasta 3 usuarios. Profesional: hasta 15. Puedes añadir usuarios adicionales en cualquier momento." },
       { question: "¿Ofrecen capacitación para usar el sistema?",                answer: "Sí. Todos los planes incluyen acceso a nuestra academia online con más de 200 tutoriales en video." },
       { question: "¿Qué tan segura es la plataforma?",                          answer: "Cada empresa tiene su propia base de datos. Las conexiones van cifradas por HTTPS, los certificados de firma se guardan cifrados, cada cambio queda auditado y los respaldos se guardan cifrados en la nube por 90 días (diarios o semanales, según tu empresa). El portal de facturas usa doble factor (MFA)." }
     ]
