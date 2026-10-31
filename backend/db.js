@@ -516,7 +516,7 @@ window.EIMS_DB = {
           { text: "1 sucursal",                     included: true },
           { text: "Reportes básicos",               included: true },
           { text: "Soporte por email",              included: true },
-          { text: "Contabilidad avanzada",          included: false },
+          { text: "Contabilidad",          included: false },
           { text: "CRM y ventas",                   included: false },
           { text: "Nómina y RRHH",                  included: false },
           { text: "API y webhooks",                 included: false }
@@ -547,6 +547,7 @@ window.EIMS_DB = {
       },
       {
         id:          "enterprise",
+        visible:     false,   // oculto por ahora (2026-10-31) -- poner true para mostrarlo otra vez
         name:        "Enterprise",
         description: "Para grandes empresas con necesidades complejas",
         price_monthly: 149,
@@ -583,8 +584,8 @@ window.EIMS_DB = {
       { question: "¿Puedo migrar mis datos desde otro sistema?",                 answer: "Sí. Nuestro equipo de implementación te ayuda a importar clientes, productos, inventario y historial contable desde Excel, CSV o directamente desde tu sistema actual." },
       { question: "¿Easy-IMS cumple con la normativa de la DGII?",              answer: "Totalmente. Somos un proveedor certificado de Comprobantes Fiscales Electrónicos (CFE). Los reportes 606, 607 y 608 se generan automáticamente según las regulaciones vigentes." },
       { question: "¿Qué pasa con mis datos si cancelo la suscripción?",         answer: "Tus datos son siempre tuyos. Al cancelar, puedes exportar todo tu historial en formatos estándar (Excel, PDF, XML) dentro de los 90 días posteriores a la cancelación." },
-      { question: "¿Cuántos usuarios puedo tener en mi cuenta?",                answer: "Depende del plan. Starter: hasta 3 usuarios. Professional: hasta 15. Enterprise: usuarios ilimitados. Puedes añadir usuarios adicionales en cualquier momento." },
-      { question: "¿Ofrecen capacitación para usar el sistema?",                answer: "Sí. Todos los planes incluyen acceso a nuestra academia online con más de 200 tutoriales en video. El plan Enterprise incluye capacitación presencial por nuestros expertos certificados." },
+      { question: "¿Cuántos usuarios puedo tener en mi cuenta?",                answer: "Depende del plan. Starter: hasta 3 usuarios. Professional: hasta 15. Puedes añadir usuarios adicionales en cualquier momento." },
+      { question: "¿Ofrecen capacitación para usar el sistema?",                answer: "Sí. Todos los planes incluyen acceso a nuestra academia online con más de 200 tutoriales en video." },
       { question: "¿Qué tan segura es la plataforma?",                          answer: "Utilizamos cifrado AES-256 para todos los datos en tránsito y reposo. Realizamos backups automáticos cada hora y contamos con infraestructura redundante con 99.9% de uptime garantizado." }
     ]
   },
@@ -956,7 +957,7 @@ window.EIMS_DB = {
               { text: "1 branch",                  included: true  },
               { text: "Basic reports",             included: true  },
               { text: "Email support",             included: true  },
-              { text: "Advanced accounting",       included: false },
+              { text: "Accounting",       included: false },
               { text: "CRM and sales",             included: false },
               { text: "Payroll and HR",            included: false },
               { text: "API and webhooks",           included: false }
@@ -980,7 +981,7 @@ window.EIMS_DB = {
             ]
           },
           {
-            id: "enterprise", name: "Enterprise", highlighted: false, badge: "Complete", cta: "Contact sales",
+            id: "enterprise", visible: false, name: "Enterprise", highlighted: false, badge: "Complete", cta: "Contact sales",
             description: "For large companies with complex needs",
             price_monthly: 149, price_annual: 119, currency: "USD",
             features: [
@@ -1008,8 +1009,8 @@ window.EIMS_DB = {
           { question: "Can I migrate my data from another system?",             answer: "Yes. Our implementation team helps you import customers, products, inventory and accounting history from Excel, CSV or directly from your current system." },
           { question: "Does Easy-IMS comply with DGII regulations?",           answer: "Absolutely. We are a certified Electronic Tax Receipt (CFE) provider. Reports 606, 607 and 608 are generated automatically according to current regulations." },
           { question: "What happens to my data if I cancel my subscription?",  answer: "Your data is always yours. Upon cancellation, you can export your full history in standard formats (Excel, PDF, XML) within 90 days after cancellation." },
-          { question: "How many users can I have in my account?",              answer: "It depends on the plan. Starter: up to 3 users. Professional: up to 15. Enterprise: unlimited users. You can add more users at any time." },
-          { question: "Do you offer training for using the system?",           answer: "Yes. All plans include access to our online academy with more than 200 video tutorials. The Enterprise plan includes in-person training by our certified experts." },
+          { question: "How many users can I have in my account?",              answer: "It depends on the plan. Starter: up to 3 users. Professional: up to 15. You can add more users at any time." },
+          { question: "Do you offer training for using the system?",           answer: "Yes. All plans include access to our online academy with more than 200 video tutorials." },
           { question: "How secure is the platform?",                           answer: "We use AES-256 encryption for all data in transit and at rest. We perform automatic hourly backups and have redundant infrastructure with 99.9% guaranteed uptime." }
         ]
       },

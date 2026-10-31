@@ -714,7 +714,7 @@
           <span class="pricing-save-badge">${p.billingNote}</span>
         </div>
         <div class="pricing-grid">
-          ${p.plans.map(plan=>`
+          ${p.plans.filter(plan=>plan.visible!==false).map(plan=>`
             <div class="pricing-card ${plan.highlighted?'featured':''} reveal">
               ${plan.badge?`<div class="pricing-card-badge">${plan.badge}</div>`:''}
               <h3 class="pricing-name">${plan.name}</h3>
