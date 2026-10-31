@@ -724,6 +724,7 @@
                 <span class="pricing-amount" data-monthly="${plan.price_monthly}" data-annual="${plan.price_annual}">${plan.price_monthly}</span>
                 <span class="pricing-period">${lblPeriod}</span>
               </div>
+              ${plan.price_note?`<p class="pricing-note">${plan.price_note}</p>`:''}
               <hr class="pricing-divider"/>
               <ul class="pricing-features">
                 ${plan.features.map(f=>`

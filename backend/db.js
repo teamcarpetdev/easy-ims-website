@@ -197,7 +197,7 @@ window.EIMS_DB = {
       { label: "Inicio",          href: "#inicio",         order: 1, visible: true },
       { label: "Características", href: "#caracteristicas", order: 2, visible: true },
       { label: "Módulos",         href: "#modulos",         order: 3, visible: true },
-      { label: "Estadísticas",    href: "#estadisticas",    order: 4, visible: true },
+      { label: "Estadísticas",    href: "#estadisticas",    order: 4, visible: false },
       { label: "Precios",         href: "#precios",         order: 5, visible: true },
       { label: "Testimonios",     href: "#testimonios",     order: 6, visible: true },
       { label: "Contacto",        href: "#contacto",        order: 7, visible: true }
@@ -546,6 +546,28 @@ window.EIMS_DB = {
         ]
       },
       {
+        id:          "gateway",
+        name:        "Gateway e-CF",
+        description: "Para empresas con su propio sistema que solo necesitan facturar electrónicamente con la DGII",
+        price_monthly: 19,
+        price_annual:  19,
+        price_note:  "Incluye 300 e-CF al mes · US$0.05 por cada e-CF adicional",
+        currency:    "USD",
+        highlighted: false,
+        badge:       "Por transacción",
+        cta:         "Conectar mi sistema",
+        features: [
+          { text: "300 e-CF aceptados incluidos cada mes",            included: true },
+          { text: "US$0.05 por e-CF adicional; los rechazos no se cobran", included: true },
+          { text: "Firma con tu certificado y envío a la DGII",        included: true },
+          { text: "Todos los tipos E31–E47 y resumen de consumo",       included: true },
+          { text: "API REST (JSON o XML) desde cualquier lenguaje",     included: true },
+          { text: "Webhooks con el resultado de la DGII",               included: true },
+          { text: "Recepción de e-CF de tus suplidores",                included: true },
+          { text: "Portal de comprobantes con doble factor (MFA)",      included: true }
+        ]
+      },
+      {
         id:          "enterprise",
         visible:     false,   // oculto por ahora (2026-10-31) -- poner true para mostrarlo otra vez
         name:        "Enterprise",
@@ -690,7 +712,7 @@ window.EIMS_DB = {
     { id: "benefits",       visible: true,  order: 4 },
     { id: "modules",        visible: true,  order: 5 },
     { id: "platform",       visible: true,  order: 6 },
-    { id: "stats",          visible: true,  order: 7 },
+    { id: "stats",          visible: false, order: 7 }, // oculto 2026-10-31: cifras no reales; reactivar cuando lo sean
     { id: "howItWorks",     visible: true,  order: 8 },
     { id: "testimonials",   visible: true,  order: 9 },
     { id: "pricing",        visible: true,  order: 10 },
@@ -713,7 +735,7 @@ window.EIMS_DB = {
           { label: "Home",          href: "#inicio",          order: 1, visible: true },
           { label: "Features",      href: "#caracteristicas", order: 2, visible: true },
           { label: "Modules",       href: "#modulos",         order: 3, visible: true },
-          { label: "Stats",         href: "#estadisticas",    order: 4, visible: true },
+          { label: "Stats",         href: "#estadisticas",    order: 4, visible: false },
           { label: "Pricing",       href: "#precios",         order: 5, visible: true },
           { label: "Testimonials",  href: "#testimonios",     order: 6, visible: true },
           { label: "Contact",       href: "#contacto",        order: 7, visible: true }
@@ -978,6 +1000,22 @@ window.EIMS_DB = {
               { text: "24/7 chat and phone support",        included: true  },
               { text: "Payroll and HR",                     included: false },
               { text: "API and webhooks",                   included: false }
+            ]
+          },
+          {
+            id: "gateway", name: "e-CF Gateway", highlighted: false, badge: "Per transaction", cta: "Connect my system",
+            description: "For companies with their own system that only need DGII electronic invoicing",
+            price_monthly: 19, price_annual: 19, currency: "USD",
+            price_note: "Includes 300 e-CF a month · US$0.05 per extra e-CF",
+            features: [
+              { text: "300 accepted e-CF included every month",          included: true },
+              { text: "US$0.05 per extra e-CF; rejections are not charged", included: true },
+              { text: "Signed with your certificate and sent to DGII",    included: true },
+              { text: "Every type E31–E47 and the consumer summary",      included: true },
+              { text: "REST API (JSON or XML) from any language",          included: true },
+              { text: "Webhooks with DGII's result",                       included: true },
+              { text: "Receiving e-CF from your suppliers",                included: true },
+              { text: "Receipts portal with two-factor sign-in (MFA)",     included: true }
             ]
           },
           {
