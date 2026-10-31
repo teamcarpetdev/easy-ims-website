@@ -12,7 +12,7 @@ window.EIMS_DB = {
     tagline:     "Software que transforma tu negocio",
     description: "Plataforma integral de gestión empresarial: facturación, inventario, contabilidad y más.",
     phone:       "+1 (809) 870-8940",
-    whatsapp:    "18095632073",
+    whatsapp:    "18098708940",
     email:       "hello@mseller.app",
     address:     "Av. Charles Summer No.18, Plaza Los Prados, Santo Domingo, RD",
     trialDays:   15,
