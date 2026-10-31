@@ -11,7 +11,7 @@ window.EIMS_DB = {
     domain:      "easy-ims.com",
     tagline:     "Software que transforma tu negocio",
     description: "Plataforma integral de gestión empresarial: facturación, inventario, contabilidad y más.",
-    phone:       "+1 (809) 563-2073",
+    phone:       "+1 (809) 870-8940",
     whatsapp:    "18095632073",
     email:       "hello@mseller.app",
     address:     "Av. Charles Summer No.18, Plaza Los Prados, Santo Domingo, RD",
