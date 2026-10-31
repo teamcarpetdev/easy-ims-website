@@ -7,7 +7,7 @@ window.EIMS_DB = {
 
   /* Content version: change it on every publish. A browser that saved an older copy through the admin panel
      (localStorage "eims_db") drops it instead of showing old content over the published one. */
-  contentVersion: "2026-10-31-2",
+  contentVersion: "2026-10-31-3",
 
   /* ─────────────────────────── SITE CONFIG ─────────────────────────── */
   config: {
@@ -214,7 +214,7 @@ window.EIMS_DB = {
   /* ─────────────────────────── HERO ─────────────────────────────────── */
   hero: {
     visible: true,
-    badge:       "🏛️ <span class=\"badge-blink\">En Proceso</span> · Certificación de Proveedor DGII · Ley 32-23",
+    badge:       "🏛️ <span class=\"badge-blink\">En Proceso</span> · Certificación PSFE con la DGII · Ley 32-23",
     headline:    "El software empresarial que tu negocio necesita",
     subheadline: "Facturación electrónica, inventario en tiempo real, contabilidad y CRM integrado — todo en una sola plataforma inteligente.",
     ctaPrimary:  { label: "Comienza Gratis — 15 días", href: "#contacto" },
@@ -608,7 +608,7 @@ window.EIMS_DB = {
       { question: "¿Necesito instalar algún software en mi computadora?",        answer: "No. Easy-IMS es 100% en la nube. Solo necesitas un navegador web y conexión a internet. Funciona en el navegador de Windows, Mac, Linux, iOS y Android." },
       { question: "¿Cómo funciona el período de prueba gratuita?",               answer: "Tienes 15 días de acceso completo a todos los módulos del plan Profesional, sin restricciones y sin necesidad de tarjeta de crédito. Al final del período, decides si continúas." },
       { question: "¿Puedo migrar mis datos desde otro sistema?",                 answer: "Sí. Nuestro equipo de implementación te ayuda a importar clientes, productos, inventario y historial contable con plantillas de Excel y nuestra herramienta de migración de datos." },
-      { question: "¿Easy-IMS cumple con la normativa de la DGII?",              answer: "Sí. Emite los e-CF E31–E47 según los esquemas XSD de la DGII y genera los reportes 606, 607, 608 e IT-1. Nuestra certificación como proveedor de servicios de facturación electrónica ante la DGII está en proceso." },
+      { question: "¿Easy-IMS cumple con la normativa de la DGII?",              answer: "Sí. Emite los e-CF E31–E47 según los esquemas XSD de la DGII y genera los reportes 606, 607, 608 e IT-1. Estamos en proceso de certificación como PSFE (Proveedor de Servicios de Facturación Electrónica) con la DGII." },
       { question: "¿Qué pasa con mis datos si cancelo la suscripción?",         answer: "Tus datos son siempre tuyos. Al cancelar, puedes exportar todo tu historial en formatos estándar (Excel, PDF, XML) dentro de los 90 días posteriores a la cancelación." },
       { question: "¿Cuántos usuarios puedo tener en mi cuenta?",                answer: "Depende del plan. Starter: hasta 3 usuarios. Profesional: hasta 15. Puedes añadir usuarios adicionales en cualquier momento." },
       { question: "¿Ofrecen capacitación para usar el sistema?",                answer: "Sí. Todos los planes incluyen acceso a nuestra academia online con más de 200 tutoriales en video." },
@@ -701,7 +701,7 @@ window.EIMS_DB = {
       { platform: "twitter",   href: "#", icon: "twitter" }
     ],
     badges: [
-      "Proveedor DGII · certificación en proceso",
+      "En proceso de certificación PSFE con la DGII",
       "Ley 32-23 · Decreto 587-24",
       "e-CF: E31–E47"
     ]
@@ -746,7 +746,7 @@ window.EIMS_DB = {
         ]
       },
       hero: {
-        badge:       "🏛️ <span class=\"badge-blink\">In Progress</span> · DGII Provider Certification · Law 32-23",
+        badge:       "🏛️ <span class=\"badge-blink\">In Progress</span> · PSFE certification with DGII · Law 32-23",
         headline:    "The business software your company needs",
         subheadline: "Electronic billing, real-time inventory, accounting and integrated CRM — all in one intelligent platform.",
         ctaPrimary:   { label: "Start Free — 15 days", href: "#contacto" },
@@ -1049,7 +1049,7 @@ window.EIMS_DB = {
           { question: "Do I need to install any software on my computer?",      answer: "No. Easy-IMS is 100% cloud-based. All you need is a web browser and an internet connection. It works in the browser on Windows, Mac, Linux, iOS and Android." },
           { question: "How does the free trial work?",                          answer: "You get 15 days of full access to all Professional plan modules, with no restrictions and no credit card required. At the end of the period, you decide if you continue." },
           { question: "Can I migrate my data from another system?",             answer: "Yes. Our implementation team helps you import customers, products, inventory and accounting history with Excel templates and our data migration tool." },
-          { question: "Does Easy-IMS comply with DGII regulations?",           answer: "Yes. It issues e-CF E31–E47 to DGII's XSD schemas and produces reports 606, 607, 608 and IT-1. Our certification as an electronic invoicing service provider with DGII is in progress." },
+          { question: "Does Easy-IMS comply with DGII regulations?",           answer: "Yes. It issues e-CF E31–E47 to DGII's XSD schemas and produces reports 606, 607, 608 and IT-1. We are in the process of certification as a PSFE (Electronic Invoicing Service Provider) with DGII." },
           { question: "What happens to my data if I cancel my subscription?",  answer: "Your data is always yours. Upon cancellation, you can export your full history in standard formats (Excel, PDF, XML) within 90 days after cancellation." },
           { question: "How many users can I have in my account?",              answer: "It depends on the plan. Starter: up to 3 users. Professional: up to 15. You can add more users at any time." },
           { question: "Do you offer training for using the system?",           answer: "Yes. All plans include access to our online academy with more than 200 video tutorials." },
@@ -1113,7 +1113,7 @@ window.EIMS_DB = {
             ]
           }
         ],
-        badges: ["DGII provider · certification in progress", "Law 32-23 · Decree 587-24", "e-CF: E31–E47"]
+        badges: ["PSFE certification with DGII in progress", "Law 32-23 · Decree 587-24", "e-CF: E31–E47"]
       }
     }
   }
