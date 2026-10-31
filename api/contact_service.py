@@ -110,9 +110,16 @@ class Handler(BaseHTTPRequestHandler):
             return self._json(200, {"ok": True})        # do not tell a bot it was caught
         if problem:
             return self._json(400, {"ok": False, "error": problem})
-        save(data, ip)
+        saved = True
+        try:
+            save(data, ip)
+        except OSError as ex:   # disk / permission problem: still try the email, never lose the request silently
+            saved = False
+            print(f"[contact] could NOT save: {type(ex).__name__}: {ex}", flush=True)
         sent = send_mail(data)
-        print(f"[contact] saved, email {'sent' if sent else 'NOT sent'}", flush=True)
+        print(f"[contact] saved={saved} email={'sent' if sent else 'NOT sent'}", flush=True)
+        if not saved and not sent:
+            return self._json(500, {"ok": False, "error": "unavailable"})
         return self._json(200, {"ok": True})
 
     def do_GET(self):  # noqa: N802

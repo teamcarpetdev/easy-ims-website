@@ -56,3 +56,13 @@ def test_rate_limit_per_ip(monkeypatch):
     monkeypatch.setattr(cs, "send_mail", lambda d: True)
     codes = [post(GOOD, ip="4.4.4.4")[0] for _ in range(4)]
     assert codes == [200, 200, 200, 429]
+
+
+def test_a_save_failure_still_tries_the_email_and_only_fails_when_both_fail(monkeypatch):
+    def broken(*a, **k):
+        raise PermissionError("read-only")
+    monkeypatch.setattr(cs, "save", broken)
+    monkeypatch.setattr(cs, "send_mail", lambda d: True)
+    assert post(GOOD, ip="5.5.5.5") == (200, {"ok": True})
+    monkeypatch.setattr(cs, "send_mail", lambda d: False)
+    assert post(GOOD, ip="6.6.6.6")[0] == 500
